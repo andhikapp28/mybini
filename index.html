@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Waifu Collection — tanpa header & footer</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section class="hero" aria-label="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <h1>Dipa My Bini</h1>
+        <p>Daftar my bini cooooyyyyy</p>
+        <a href="#waifu-section" class="btn">Lihat Daftar My Bini</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="new-waifu new-waifu-glitch" aria-label="New Waifu">
+    <div class="nw-bg-text" aria-hidden="true">NEW WAIFU</div>
+
+    <div class="nw-inner">
+      <img src="src/img/Chisa_Full_Sprite.png" alt="Chisa" class="nw-character" draggable="false" />
+      <div class="nw-info">
+        <h2>Chisa</h2>
+        <p>Wuthering Waves</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" aria-hidden="false">
+    <div class="stat-box">
+      <h2 id="total-count">0</h2>
+      <p>Total Waifu</p>
+    </div>
+    <div class="stat-box">
+      <h2 id="filtered-count">0</h2>
+      <p>Hasil Filter</p>
+    </div>
+    <div class="stat-box">
+      <h2 id="current-page">—</h2>
+      <p>Halaman</p>
+    </div>
+  </section>
+
+  <div class="controls" role="region" aria-label="filter controls">
+    <div class="letters" id="alphabet-bar" aria-hidden="false"></div>
+
+    <div class="filter-right">
+      <label for="series-select" class="sr-only">Filter Series</label>
+      <select id="series-select" title="Filter series">
+        <option value="all">All Series</option>
+      </select>
+
+      <input type="search" id="search-name" placeholder="Search name..." title="Search by name">
+    </div>
+  </div>
+
+  <main class="waifu-section" id="waifu-section">
+    <p class="section-title" id="section-title">Daftar Waifu</p>
+    <div class="waifu-grid" id="waifu-grid" aria-live="polite"></div>
+    <div class="pagination" id="pagination"></div>
+  </main>
+
+  <script src="waifu.js"></script>
+  <script src="script.js"></script>
+
+  <footer class="footer-clean">
+    <div class="footer-clean-inner">
+      <p class="footer-clean-name">Bini Dipa</p>
+
+      <div class="footer-clean-social">
+        <a href="#" aria-label="Instagram"><i class="icon ig"></i></a>
+        <a href="#" aria-label="Twitter/X"><i class="icon tw"></i></a>
+        <a href="#" aria-label="TikTok"><i class="icon tk"></i></a>
+        <a href="#" aria-label="YouTube"><i class="icon yt"></i></a>
+      </div>
+
+      <p class="footer-clean-copy">© 2025 My Bini</p>
+    </div>
+  </footer>
+</body>
+</html>
