@@ -18,7 +18,7 @@
       <div class="hero-content">
         <h1>Daftar My Bini</h1>
         <p>Daftar my bini cooooyyyyy - punya dipa ygy!</p>
-        <a href="#waifu-section" class="btn">Lihat Daftar My Bini</a>
+        <a id="scroll-to-waifu" class="btn">Lihat Daftar My Bini</a>
       </div>
     </div>
   </section>
@@ -65,13 +65,18 @@
           <option value="id-asc">Sort by: ID ↑</option>
           <option value="id-desc">Sort by: ID ↓</option>
         </select>
+
+        <select id="load-mode" title="Load mode">
+          <option value="pagination">Pagination</option>
+          <option value="infinite">Infinite Scroll</option>
+        </select>
+
         <button id="reset-filter" class="reset-btn">Reset</button>
 
       </div>
 
       <div class="search-wrap">
         <input type="search" id="search-name" placeholder="Search name..." />
-
       </div>
 
     </div>
@@ -79,13 +84,30 @@
 
 
   <main class="waifu-section" id="waifu-section">
-    <p class="section-title" id="section-title">Daftar Waifu</p>
+    <p class="section-title" id="section-title">Daftar My Bini</p>
     <div class="waifu-grid" id="waifu-grid" aria-live="polite"></div>
     <div class="pagination" id="pagination"></div>
   </main>
 
   <script src="waifu.js"></script>
   <script src="script.js"></script>
+
+  <div id="waifu-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="waifu-modal-title">
+    <div class="modal-backdrop" data-action="close"></div>
+    <div class="modal-panel" role="document" aria-modal="true">
+      <button class="modal-close" data-action="close" aria-label="Close">✕</button>
+      <div class="modal-center">
+        <div class="modal-image">
+          <img id="modal-img" src="" alt="">
+        </div>
+        <div class="modal-info">
+          <h2 id="waifu-modal-title">Name</h2>
+          <p id="waifu-modal-series" class="muted">Series</p>
+          <p class="modal-id">ID: <span id="waifu-modal-id"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer class="footer-clean">
     <div class="footer-clean-inner">
@@ -101,6 +123,10 @@
       <p class="footer-clean-copy">© 2025 My Bini</p>
     </div>
   </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-hidden="true" title="Back to top" aria-label="Back to top">
+    ▲
+  </button>
 </body>
 
 </html>
