@@ -400,8 +400,165 @@ const waifus = [
   { id: 200, name: "Lucilla", series: "Wuthering Waves", img: "src/img/waifu/200.jpg" },
 
   { id: 201, name: "Sigrika", series: "Wuthering Waves", img: "src/img/waifu/201.jpg" },
-  
+
   { id: 202, name: "Lynae", series: "Wuthering Waves", img: "src/img/waifu/202.jpg" },
 
+  { id: 203, name: "Maomao", series: "Kusuriya no Hitorigoto", img: "src/img/waifu/203.jpg" },
+
+  { id: 204, name: "Eucliwood Hellscythe", series: "Kore wa Zombie Desu ka?", img: "src/img/waifu/204.jpg" },
+
+  { id: 205, name: "Shiro", series: "No Game No Life", img: "src/img/waifu/205.jpg" },
+
+  { id: 206, name: "Yaya", series: "Machine-Doll wa Kizutsukanai", img: "src/img/waifu/206.jpg" },
+
+  { id: 207, name: "Irori", series: "Machine-Doll wa Kizutsukanai", img: "src/img/waifu/207.jpg" },
+
+  { id: 208, name: "Honoka Kousaka", series: "Love Live!", img: "src/img/waifu/208.jpg" },
+
+  { id: 209, name: "Mikoto Kujou", series: "Last Game", img: "src/img/waifu/209.jpg" },
+
+  { id: 210, name: "Saber", series: "Fate/stay night", img: "src/img/waifu/210.jpg" },
+
+  { id: 211, name: "Aisaka Taiga", series: "Toradora!", img: "src/img/waifu/211.jpg" },
+
+  { id: 212, name: "Frieren", series: "Sousou no Frieren", img: "src/img/waifu/212.jpg" },
+
+  { id: 213, name: "Fern", series: "Sousou no Frieren", img: "src/img/waifu/213.jpg" },
+
+  { id: 214, name: "Miyazono Kaori", series: "Shigatsu wa Kimi no Uso", img: "src/img/waifu/214.jpg" },
+
+  { id: 215, name: "Tohsaka Rin", series: "Fate/stay night", img: "src/img/waifu/215.jpg" },
+
+  { id: 216, name: "Yukinoshita Yukino", series: "Oregairu", img: "src/img/waifu/216.jpg" },
+
+  { id: 217, name: "Yuigahama Yui", series: "Oregairu", img: "src/img/waifu/217.jpg" },
+
+  { id: 218, name: "Kawasaki Saki", series: "Oregairu", img: "src/img/waifu/218.jpg" },
+
+  { id: 219, name: "Hiratsuka Shizuka", series: "Oregairu", img: "src/img/waifu/219.jpg" },
+
+  { id: 220, name: "Nakano Ichika", series: "5-toubun no Hanayome", img: "src/img/waifu/220.jpg" },
+
+  { id: 221, name: "Nakano Nino", series: "5-toubun no Hanayome", img: "src/img/waifu/221.jpg" },
+
+  { id: 222, name: "Nakano Miku", series: "5-toubun no Hanayome", img: "src/img/waifu/222.jpg" },
+
+  { id: 223, name: "Nakano Yotsuba", series: "5-toubun no Hanayome", img: "src/img/waifu/223.jpg" },
+
+  { id: 224, name: "Nakano Itsuki", series: "5-toubun no Hanayome", img: "src/img/waifu/224.jpg" },
+
+  { id: 225, name: "Rias Gremory", series: "High School DxD", img: "src/img/waifu/225.jpg" },
+
+  { id: 226, name: "Himejima Akeno", series: "High School DxD", img: "src/img/waifu/226.jpg" },
+
+  { id: 227, name: "Asia Argento", series: "High School DxD", img: "src/img/waifu/227.jpg" },
+
+  { id: 228, name: "Erza Scarlet", series: "Fairy Tail", img: "src/img/waifu/228.jpg" },
+
+  { id: 229, name: "Gotou Hitori", series: "Bocchi the Rock!", img: "src/img/waifu/229.jpg" },
+
+  { id: 230, name: "Nishimiya Shouko", series: "Koe no Katachi", img: "src/img/waifu/230.jpg" },
+
+  { id: 231, name: "Shiina Mashiro", series: "Sakura-sou no Pet na Kanojo", img: "src/img/waifu/231.jpg" },
+
+  { id: 232, name: "Suzumiya Haruhi", series: "Suzumiya Haruhi no Yuuutsu", img: "src/img/waifu/232.jpg" },
+
+  { id: 233, name: "Tachibana Kanade", series: "Angel Beats!", img: "src/img/waifu/233.jpg" },
+  
+  { id: 234, name: "Vladilena Milizé", series: "Eighty Six", img: "src/img/waifu/234.jpg" },
+  
+  { id: 235, name: "Hori Kyouko", series: "Horimiya", img: "src/img/waifu/235.jpg" },
+  
+  { id: 236, name: "Akame", series: "Akame ga Kill!", img: "src/img/waifu/236.jpg" },
+  
+  { id: 237, name: "Esdeath", series: "Akame ga Kill!", img: "src/img/waifu/237.jpg" },
+  
+  { id: 238, name: "Yor Forger", series: "Spy x Family", img: "src/img/waifu/238.jpg" },
+  
+  { id: 239, name: "Kirisaki Chitoge", series: "Nisekoi", img: "src/img/waifu/239.jpg" },
+  
+  { id: 240, name: "Katou Megumi", series: "Saenai Heroine no Sodatekata", img: "src/img/waifu/240.jpg" },
+  
+  { id: 241, name: "Inori Yuzuriha", series: "Guilty Crown", img: "src/img/waifu/241.jpg" },
+  
+  { id: 242, name: "Chitanda Eru", series: "Hyouka", img: "src/img/waifu/242.jpg" },
+  
+  { id: 243, name: "Nishikigi Chisato", series: "Lycoris Recoil", img: "src/img/waifu/243.jpg" },
+  
+  { id: 244, name: "Lucy", series: "Cyberpunk: Edgerunners", img: "src/img/waifu/244.jpg" },
+  
+  { id: 245, name: "Miyamizu Mitsuha", series: "Kimi no Na wa", img: "src/img/waifu/245.jpg" },
+  
+  { id: 246, name: "Misa Amane", series: "Death Note", img: "src/img/waifu/246.jpg" },
+  
+  { id: 247, name: "Shana", series: "Shakugan no Shana", img: "src/img/waifu/247.jpg" },
+  
+  { id: 248, name: "Gokou Ruri", series: "Oreimo", img: "src/img/waifu/248.jpg" },
+  
+  { id: 249, name: "Elaina", series: "Majo no Tabitabi", img: "src/img/waifu/249.jpg" },
+  
+  { id: 250, name: "Takagi-san", series: "Karakai Jouzu no Takagi-san", img: "src/img/waifu/250.jpg" },
+  
+  { id: 251, name: "Momo Belia Deviluke", series: "To LOVE-Ru", img: "src/img/waifu/251.jpg" },
+  
+  { id: 252, name: "Konjiki no Yami", series: "To LOVE-Ru", img: "src/img/waifu/252.jpg" },
+  
+  { id: 253, name: "Kotegawa Yui", series: "To LOVE-Ru", img: "src/img/waifu/253.jpg" },
+  
+  { id: 254, name: "Lala Satalin Deviluke", series: "To LOVE-Ru", img: "src/img/waifu/254.jpg" },
+  
+  { id: 255, name: "Busujima Saeko", series: "Highschool of the Dead", img: "src/img/waifu/255.jpg" },
+  
+  { id: 256, name: "Nanakusa Nazuna", series: "Yofukashi no Uta", img: "src/img/waifu/256.jpg" },
+  
+  { id: 257, name: "Tsukino Usagi", series: "Sailor Moon", img: "src/img/waifu/257.jpg" },
+  
+  { id: 258, name: "Yuzaki Tsukasa", series: "Tonikaku Kawaii", img: "src/img/waifu/258.jpg" },
+  
+  { id: 259, name: "Kirigiri Kyouko", series: "Danganronpa", img: "src/img/waifu/259.jpg" },
+  
+  { id: 260, name: "Nakiri Erina", series: "Shokugeki no Souma", img: "src/img/waifu/260.jpg" },
+  
+  { id: 261, name: "Rory Mercury", series: "Gate: Jieitai Kanochi nite", img: "src/img/waifu/261.jpg" },
+  
+  { id: 262, name: "Morgiana", series: "Magi", img: "src/img/waifu/262.jpg" },
+  
+  { id: 263, name: "Sengoku Nadeko", series: "Monogatari Series", img: "src/img/waifu/263.jpg" },
+  
+  { id: 264, name: "Umaru Doma", series: "Himouto! Umaru-chan", img: "src/img/waifu/264.jpg" },
+  
+  { id: 265, name: "Ayase Momo", series: "Dandadan", img: "src/img/waifu/265.jpg" },
+  
+  { id: 266, name: "Toujou Koneko", series: "High School DxD", img: "src/img/waifu/266.jpg" },
+  
+  { id: 267, name: "Matou Sakura", series: "Fate/stay night", img: "src/img/waifu/267.jpg" },
+  
+  { id: 268, name: "Kasumigaoka Utaha", series: "Saekano", img: "src/img/waifu/268.jpg" },
+
+  { id: 269, name: "Shiina Mahiru", series: "Otonari no Tenshi-sama", img: "src/img/waifu/269.jpg" },
+  
+  { id: 270, name: "Satanichia Kurumizawa McDowell", series: "Gabriel DropOut", img: "src/img/waifu/270.jpg" },
+
+  { id: 271, name: "Kuroyukihime", series: "Accel World", img: "src/img/waifu/271.jpg" },
+  
+  { id: 272, name: "Akashiya Moka", series: "Rosario to Vampire", img: "src/img/waifu/272.jpg" },
+  
+  { id: 273, name: "Alisa Mikhailovna Kujou", series: "Boku no Kokoro no Yabai Yatsu", img: "src/img/waifu/273.jpg" },
+  
+  { id: 274, name: "Karuizawa Kei", series: "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e", img: "src/img/waifu/274.jpg" },
+  
+  { id: 275, name: "Senko", series: "Sewayaki Kitsune no Senko-san", img: "src/img/waifu/275.jpg" },
+  
+  { id: 276, name: "Shiba Miyuki", series: "Mahouka Koukou no Rettousei", img: "src/img/waifu/276.jpg" },
+  
+  { id: 277, name: "Sento Isuzu", series: "Amagi Brilliant Park", img: "src/img/waifu/277.jpg" },
+  
+  { id: 278, name: "Shiraishi Urara", series: "Yamada-kun to 7-nin no Majo", img: "src/img/waifu/278.jpg" },
+  
+  { id: 279, name: "Arcueid Brunestud", series: "Tsukihime", img: "src/img/waifu/279.jpg" },
+  
+  { id: 280, name: "Jeanne d'Arc", series: "Fate/Apocrypha", img: "src/img/waifu/280.jpg" },
+  
+  { id: 281, name: "Cecilia Alcott", series: "IS: Infinite Stratos", img: "src/img/waifu/281.jpg" },
 
 ];

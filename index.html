@@ -54,22 +54,29 @@
     <div class="letters" id="alphabet-bar" aria-hidden="false"></div>
 
     <div class="filter-right">
-      <label for="series-select" class="sr-only">Filter Series</label>
-      <select id="series-select" title="Filter series">
-        <option value="all">All Series</option>
-      </select>
+      <div class="filter-top">
+        <select id="series-select">
+          <option value="all">All Series</option>
+        </select>
 
-      <label for="sort-select" style="display:none;">Sort</label>
-      <select id="sort-select" title="Sort by" aria-label="Sort by">
-        <option value="name-asc">Sort by: Name A–Z</option>
-        <option value="name-desc">Sort by: Name Z–A</option>
-        <option value="id-asc">Sort by: ID ↑</option>
-        <option value="id-desc">Sort by: ID ↓</option>
-      </select>
+        <select id="sort-select">
+          <option value="name-asc">Sort by: Name A–Z</option>
+          <option value="name-desc">Sort by: Name Z–A</option>
+          <option value="id-asc">Sort by: ID ↑</option>
+          <option value="id-desc">Sort by: ID ↓</option>
+        </select>
+        <button id="reset-filter" class="reset-btn">Reset</button>
 
-      <input type="search" id="search-name" placeholder="Search name..." title="Search by name">
+      </div>
+
+      <div class="search-wrap">
+        <input type="search" id="search-name" placeholder="Search name..." />
+
+      </div>
+
     </div>
   </div>
+
 
   <main class="waifu-section" id="waifu-section">
     <p class="section-title" id="section-title">Daftar Waifu</p>

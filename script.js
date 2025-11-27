@@ -34,6 +34,30 @@ if (sortSelect) {
   });
 }
 
+document.getElementById('reset-filter').addEventListener('click', () => {
+
+  // reset state
+  state.alphabet = 'all';
+  state.series = 'all';
+  state.search = '';
+  state.sort = 'name-asc';
+  state.page = 1;
+
+  // reset UI
+  searchInput.value = '';
+  seriesSelect.value = 'all';
+  sortSelect.value = 'name-asc';
+
+  // reset Alphabet active button
+  alphabetBar.querySelectorAll('button').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.letter === 'all');
+  });
+
+  // render ulang
+  renderList();
+});
+
+
 // debounce helper
 function debounce(fn, wait = 120) {
   let t;
