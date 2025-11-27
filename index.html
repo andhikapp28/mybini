@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -9,13 +10,14 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <section class="hero" aria-label="hero">
     <div class="hero-inner">
       <div class="hero-content">
-        <h1>Dipa My Bini</h1>
-        <p>Daftar my bini cooooyyyyy</p>
+        <h1>Daftar My Bini</h1>
+        <p>Daftar my bini cooooyyyyy - punya dipa ygy!</p>
         <a href="#waifu-section" class="btn">Lihat Daftar My Bini</a>
       </div>
     </div>
@@ -36,7 +38,7 @@
   <section class="stats" aria-hidden="false">
     <div class="stat-box">
       <h2 id="total-count">0</h2>
-      <p>Total Waifu</p>
+      <p>Total Bini</p>
     </div>
     <div class="stat-box">
       <h2 id="filtered-count">0</h2>
@@ -55,6 +57,14 @@
       <label for="series-select" class="sr-only">Filter Series</label>
       <select id="series-select" title="Filter series">
         <option value="all">All Series</option>
+      </select>
+
+      <label for="sort-select" style="display:none;">Sort</label>
+      <select id="sort-select" title="Sort by" aria-label="Sort by">
+        <option value="name-asc">Sort by: Name A–Z</option>
+        <option value="name-desc">Sort by: Name Z–A</option>
+        <option value="id-asc">Sort by: ID ↑</option>
+        <option value="id-desc">Sort by: ID ↓</option>
       </select>
 
       <input type="search" id="search-name" placeholder="Search name..." title="Search by name">
@@ -85,4 +95,5 @@
     </div>
   </footer>
 </body>
+
 </html>

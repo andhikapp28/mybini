@@ -359,4 +359,49 @@ const waifus = [
 
   { id: 180, name: "Baizhi", series: "Wuthering Waves", img: "src/img/waifu/180.jpg" },
 
+  { id: 181, name: "Augusta", series: "Wuthering Waves", img: "src/img/waifu/181.jpg" },
+
+  { id: 182, name: "Camellya", series: "Wuthering Waves", img: "src/img/waifu/182.jpg" },
+
+  { id: 183, name: "Cantarella", series: "Wuthering Waves", img: "src/img/waifu/183.jpg" },
+
+  { id: 184, name: "Carlotta", series: "Wuthering Waves", img: "src/img/waifu/184.jpg" },
+
+  { id: 185, name: "Cartethyia", series: "Wuthering Waves", img: "src/img/waifu/185.jpg" },
+
+  { id: 186, name: "Changli", series: "Wuthering Waves", img: "src/img/waifu/186.jpg" },
+
+  { id: 187, name: "Chisa", series: "Wuthering Waves", img: "src/img/waifu/187.jpg" },
+
+  { id: 188, name: "Ciaccona", series: "Wuthering Waves", img: "src/img/waifu/188.jpg" },
+
+  { id: 189, name: "Galbrena", series: "Wuthering Waves", img: "src/img/waifu/189.jpg" },
+
+  { id: 190, name: "Iuno", series: "Wuthering Waves", img: "src/img/waifu/190.jpg" },
+
+  { id: 191, name: "Lupa", series: "Wuthering Waves", img: "src/img/waifu/191.jpg" },
+
+  { id: 192, name: "Phrolova", series: "Wuthering Waves", img: "src/img/waifu/192.jpg" },
+
+  { id: 193, name: "Roccia", series: "Wuthering Waves", img: "src/img/waifu/193.jpg" },
+
+  { id: 194, name: "F Rover", series: "Wuthering Waves", img: "src/img/waifu/194.jpg" },
+
+  { id: 195, name: "Shorekeeper", series: "Wuthering Waves", img: "src/img/waifu/195.jpg" },
+
+  { id: 196, name: "Zani", series: "Wuthering Waves", img: "src/img/waifu/196.jpg" },
+
+  { id: 197, name: "Zhezhi", series: "Wuthering Waves", img: "src/img/waifu/197.jpg" },
+
+  { id: 198, name: "Lumi", series: "Wuthering Waves", img: "src/img/waifu/198.jpg" },
+
+  { id: 199, name: "Taoqi", series: "Wuthering Waves", img: "src/img/waifu/199.jpg" },
+
+  { id: 200, name: "Lucilla", series: "Wuthering Waves", img: "src/img/waifu/200.jpg" },
+
+  { id: 201, name: "Sigrika", series: "Wuthering Waves", img: "src/img/waifu/201.jpg" },
+  
+  { id: 202, name: "Lynae", series: "Wuthering Waves", img: "src/img/waifu/202.jpg" },
+
+
 ];
