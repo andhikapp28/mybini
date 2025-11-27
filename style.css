@@ -18,6 +18,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.35;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+input,
+textarea {
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 /* =====================  BANNER  ===================== */
@@ -765,6 +774,7 @@ input[type="search"] {
   height: 100%;
   object-fit: cover;
   display: block;
+  object-position: 50% top;
 }
 
 .modal-info {
