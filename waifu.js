@@ -464,101 +464,161 @@ const waifus = [
   { id: 232, name: "Suzumiya Haruhi", series: "Suzumiya Haruhi no Yuuutsu", img: "src/img/waifu/232.jpg" },
 
   { id: 233, name: "Tachibana Kanade", series: "Angel Beats!", img: "src/img/waifu/233.jpg" },
-  
+
   { id: 234, name: "Vladilena Milizé", series: "Eighty Six", img: "src/img/waifu/234.jpg" },
-  
+
   { id: 235, name: "Hori Kyouko", series: "Horimiya", img: "src/img/waifu/235.jpg" },
-  
+
   { id: 236, name: "Akame", series: "Akame ga Kill!", img: "src/img/waifu/236.jpg" },
-  
+
   { id: 237, name: "Esdeath", series: "Akame ga Kill!", img: "src/img/waifu/237.jpg" },
-  
+
   { id: 238, name: "Yor Forger", series: "Spy x Family", img: "src/img/waifu/238.jpg" },
-  
+
   { id: 239, name: "Kirisaki Chitoge", series: "Nisekoi", img: "src/img/waifu/239.jpg" },
-  
+
   { id: 240, name: "Katou Megumi", series: "Saenai Heroine no Sodatekata", img: "src/img/waifu/240.jpg" },
-  
+
   { id: 241, name: "Inori Yuzuriha", series: "Guilty Crown", img: "src/img/waifu/241.jpg" },
-  
+
   { id: 242, name: "Chitanda Eru", series: "Hyouka", img: "src/img/waifu/242.jpg" },
-  
+
   { id: 243, name: "Nishikigi Chisato", series: "Lycoris Recoil", img: "src/img/waifu/243.jpg" },
-  
+
   { id: 244, name: "Lucy", series: "Cyberpunk: Edgerunners", img: "src/img/waifu/244.jpg" },
-  
+
   { id: 245, name: "Miyamizu Mitsuha", series: "Kimi no Na wa", img: "src/img/waifu/245.jpg" },
-  
+
   { id: 246, name: "Misa Amane", series: "Death Note", img: "src/img/waifu/246.jpg" },
-  
+
   { id: 247, name: "Shana", series: "Shakugan no Shana", img: "src/img/waifu/247.jpg" },
-  
+
   { id: 248, name: "Gokou Ruri", series: "Oreimo", img: "src/img/waifu/248.jpg" },
-  
+
   { id: 249, name: "Elaina", series: "Majo no Tabitabi", img: "src/img/waifu/249.jpg" },
-  
+
   { id: 250, name: "Takagi-san", series: "Karakai Jouzu no Takagi-san", img: "src/img/waifu/250.jpg" },
-  
+
   { id: 251, name: "Momo Belia Deviluke", series: "To LOVE-Ru", img: "src/img/waifu/251.jpg" },
-  
+
   { id: 252, name: "Konjiki no Yami", series: "To LOVE-Ru", img: "src/img/waifu/252.jpg" },
-  
+
   { id: 253, name: "Kotegawa Yui", series: "To LOVE-Ru", img: "src/img/waifu/253.jpg" },
-  
+
   { id: 254, name: "Lala Satalin Deviluke", series: "To LOVE-Ru", img: "src/img/waifu/254.jpg" },
-  
+
   { id: 255, name: "Busujima Saeko", series: "Highschool of the Dead", img: "src/img/waifu/255.jpg" },
-  
+
   { id: 256, name: "Nanakusa Nazuna", series: "Yofukashi no Uta", img: "src/img/waifu/256.jpg" },
-  
+
   { id: 257, name: "Tsukino Usagi", series: "Sailor Moon", img: "src/img/waifu/257.jpg" },
-  
+
   { id: 258, name: "Yuzaki Tsukasa", series: "Tonikaku Kawaii", img: "src/img/waifu/258.jpg" },
-  
+
   { id: 259, name: "Kirigiri Kyouko", series: "Danganronpa", img: "src/img/waifu/259.jpg" },
-  
+
   { id: 260, name: "Nakiri Erina", series: "Shokugeki no Souma", img: "src/img/waifu/260.jpg" },
-  
+
   { id: 261, name: "Rory Mercury", series: "Gate: Jieitai Kanochi nite", img: "src/img/waifu/261.jpg" },
-  
+
   { id: 262, name: "Morgiana", series: "Magi", img: "src/img/waifu/262.jpg" },
-  
+
   { id: 263, name: "Sengoku Nadeko", series: "Monogatari Series", img: "src/img/waifu/263.jpg" },
-  
+
   { id: 264, name: "Umaru Doma", series: "Himouto! Umaru-chan", img: "src/img/waifu/264.jpg" },
-  
+
   { id: 265, name: "Ayase Momo", series: "Dandadan", img: "src/img/waifu/265.jpg" },
-  
+
   { id: 266, name: "Toujou Koneko", series: "High School DxD", img: "src/img/waifu/266.jpg" },
-  
+
   { id: 267, name: "Matou Sakura", series: "Fate/stay night", img: "src/img/waifu/267.jpg" },
-  
+
   { id: 268, name: "Kasumigaoka Utaha", series: "Saekano", img: "src/img/waifu/268.jpg" },
 
   { id: 269, name: "Shiina Mahiru", series: "Otonari no Tenshi-sama", img: "src/img/waifu/269.jpg" },
-  
+
   { id: 270, name: "Satanichia Kurumizawa McDowell", series: "Gabriel DropOut", img: "src/img/waifu/270.jpg" },
 
   { id: 271, name: "Kuroyukihime", series: "Accel World", img: "src/img/waifu/271.jpg" },
-  
+
   { id: 272, name: "Akashiya Moka", series: "Rosario to Vampire", img: "src/img/waifu/272.jpg" },
-  
+
   { id: 273, name: "Alisa Mikhailovna Kujou", series: "Boku no Kokoro no Yabai Yatsu", img: "src/img/waifu/273.jpg" },
-  
+
   { id: 274, name: "Karuizawa Kei", series: "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e", img: "src/img/waifu/274.jpg" },
-  
+
   { id: 275, name: "Senko", series: "Sewayaki Kitsune no Senko-san", img: "src/img/waifu/275.jpg" },
-  
+
   { id: 276, name: "Shiba Miyuki", series: "Mahouka Koukou no Rettousei", img: "src/img/waifu/276.jpg" },
-  
+
   { id: 277, name: "Sento Isuzu", series: "Amagi Brilliant Park", img: "src/img/waifu/277.jpg" },
-  
+
   { id: 278, name: "Shiraishi Urara", series: "Yamada-kun to 7-nin no Majo", img: "src/img/waifu/278.jpg" },
-  
+
   { id: 279, name: "Arcueid Brunestud", series: "Tsukihime", img: "src/img/waifu/279.jpg" },
-  
+
   { id: 280, name: "Jeanne d'Arc", series: "Fate/Apocrypha", img: "src/img/waifu/280.jpg" },
-  
+
   { id: 281, name: "Cecilia Alcott", series: "IS: Infinite Stratos", img: "src/img/waifu/281.jpg" },
+
+  { id: 282, name: "Maruzensky", series: "Uma Musume", img: "src/img/waifu/282.jpg" },
+
+  { id: 283, name: "Oguri Cap", series: "Uma Musume", img: "src/img/waifu/283.jpg" },
+
+  { id: 284, name: "Gold Ship", series: "Uma Musume", img: "src/img/waifu/284.jpg" },
+
+  { id: 285, name: "Daiwa Scarlet", series: "Uma Musume", img: "src/img/waifu/285.jpg" },
+
+  { id: 286, name: "Mejiro McQueen", series: "Uma Musume", img: "src/img/waifu/286.jpg" },
+
+  { id: 287, name: "Agnes Tachyon", series: "Uma Musume", img: "src/img/waifu/287.jpg" },
+
+  { id: 288, name: "Super Creek", series: "Uma Musume", img: "src/img/waifu/288.jpg" },
+
+  { id: 289, name: "Dream Journey", series: "Uma Musume", img: "src/img/waifu/289.jpg" },
+
+  { id: 290, name: "Gentildonna", series: "Uma Musume", img: "src/img/waifu/290.jpg" },
+
+  { id: 291, name: "Mejiro Ramonu", series: "Uma Musume", img: "src/img/waifu/291.jpg" },
+
+  { id: 292, name: "Neo Universe", series: "Uma Musume", img: "src/img/waifu/292.jpg" },
+
+  { id: 293, name: "Orfevre", series: "Uma Musume", img: "src/img/waifu/293.jpg" },
+
+  { id: 294, name: "Still in Love", series: "Uma Musume", img: "src/img/waifu/294.jpg" },
+
+  { id: 295, name: "Murokasa Akane", series: "Blue Archive", img: "src/img/waifu/295.jpg" },
+
+  { id: 296, name: "Tendō Arisu", series: "Blue Archive", img: "src/img/waifu/296.jpg" },
+
+  { id: 297, name: "Rikuhachima Aru", series: "Blue Archive", img: "src/img/waifu/297.jpg" },
+
+  { id: 298, name: "Ichinose Asuna", series: "Blue Archive", img: "src/img/waifu/298.jpg" },
+
+  { id: 299, name: "Urawa Hanako", series: "Blue Archive", img: "src/img/waifu/299.jpg" },
+
+  { id: 300, name: "Hanekawa Hasumi", series: "Blue Archive", img: "src/img/waifu/300.jpg" },
+
+  { id: 301, name: "Sorasaki Hina", series: "Blue Archive", img: "src/img/waifu/301.jpg" },
+
+  { id: 302, name: "Akeboshi Himari", series: "Blue Archive", img: "src/img/waifu/302.jpg" },
+
+  { id: 303, name: "Ryūge Kisaki", series: "Blue Archive", img: "src/img/waifu/303.jpg" },
+
+  { id: 304, name: "Iochi Mari", series: "Blue Archive", img: "src/img/waifu/304.jpg" },
+
+  { id: 305, name: "Mizuha Mimori", series: "Blue Archive", img: "src/img/waifu/305.jpg" },
+
+  { id: 306, name: "Asagi Mutsuki", series: "Blue Archive", img: "src/img/waifu/306.jpg" },
+
+  { id: 307, name: "Ushio Noa", series: "Blue Archive", img: "src/img/waifu/307.jpg" },
+
+  { id: 308, name: "Tsukatsuki Rio", series: "Blue Archive", img: "src/img/waifu/308.jpg" },
+
+  { id: 309, name: "Kuromi Serika", series: "Blue Archive", img: "src/img/waifu/309.jpg" },
+
+  { id: 310, name: "Nikki Su", series: "Infinity Nikki", img: "src/img/waifu/310.jpg" },
+
+
 
 ];
