@@ -612,10 +612,92 @@ if (USE_INFINITE_SCROLL) {
   btn10x.addEventListener('click', do10x);
   btn1x.addEventListener('keyup', (e) => { if (e.key === 'Enter') do1x(); });
   btn10x.addEventListener('keyup', (e) => { if (e.key === 'Enter') do10x(); });
+
   renderIdle();
   window.doGacha1x = do1x; window.doGacha10x = do10x;
 
 })();
+
+
+(function () {
+  if (typeof waifus === 'undefined' || !Array.isArray(waifus)) {
+    return;
+  }
+  const elTotalSeries = document.getElementById('stat-total-series');
+  const elTopSeries = document.getElementById('stat-top-series');
+  const elTopThumb = document.getElementById('stat-top-thumb-inline');
+
+  function seriesCounts(list) {
+    const map = new Map();
+    for (const w of list) {
+      const s = (w && w.series) ? String(w.series).trim() : 'Unknown';
+      const cur = map.get(s) || 0;
+      map.set(s, cur + 1);
+    }
+    return map;
+  }
+
+  function pickRandom(arr) {
+    if (!arr || arr.length === 0) return null;
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  function updateSeriesStats(list) {
+    const data = Array.isArray(list) ? list : waifus;
+    const counts = seriesCounts(data);
+
+    const totalSeries = counts.size;
+    if (elTotalSeries) elTotalSeries.textContent = totalSeries;
+
+    let topSeries = null;
+    let topCount = 0;
+    for (const [seriesName, cnt] of counts.entries()) {
+      if (cnt > topCount) { topCount = cnt; topSeries = seriesName; }
+    }
+
+    if (elTopSeries) {
+      if (topSeries) {
+        elTopSeries.textContent = `${topSeries} (${topCount})`;
+        elTopSeries.title = `Series: ${topSeries} — ${topCount} character(s)`;
+      } else {
+        elTopSeries.textContent = '—';
+        elTopSeries.title = '';
+      }
+    }
+    if (elTopThumb) {
+      if (topSeries) {
+        const pool = data.filter(w => ((w && w.series) ? String(w.series).trim() : 'Unknown') === topSeries);
+        const pick = pickRandom(pool) || null;
+        if (pick && pick.img) {
+          elTopThumb.src = pick.img;
+          elTopThumb.alt = (pick.name ? pick.name : topSeries);
+        } else {
+          elTopThumb.src = 'src/img/waifu/placeholder.jpg';
+          elTopThumb.alt = topSeries;
+        }
+        elTopThumb.onclick = function () {
+          const newPick = pickRandom(pool);
+          if (newPick && newPick.img) {
+            elTopThumb.src = newPick.img;
+            elTopThumb.alt = newPick.name || topSeries;
+          }
+        };
+
+      } else {
+        elTopThumb.src = 'src/img/waifu/placeholder.jpg';
+        elTopThumb.alt = '—';
+        elTopThumb.onclick = null;
+      }
+    }
+
+    return { totalSeries, topSeries, topCount };
+  }
+
+  try { updateSeriesStats(); } catch (e) { /* ignore */ }
+  window.updateSeriesStats = updateSeriesStats;
+
+})();
+
 
 
 

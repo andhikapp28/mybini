@@ -58,52 +58,60 @@
 
 
   <section class="stats" aria-hidden="false">
-    <div class="stat-box">
-      <h2 id="total-count">0</h2>
-      <p>Total Bini</p>
+    <div class="stats-inner">
+      <div class="stats-left" role="group" aria-label="Main stats">
+        <div class="stat-box">
+          <h2 id="total-count">0</h2>
+          <p>Total Bini</p>
+        </div>
+        <div class="stat-box">
+          <h2 id="stat-total-series">0</h2>
+          <p>Total Series</p>
+        </div>
+        <div class="stat-box">
+          <h2 id="filtered-count">0</h2>
+          <p>Hasil Filter</p>
+        </div>
+        <div class="stat-box">
+          <h2 id="current-page">—</h2>
+          <p>Halaman</p>
+        </div>
+      </div>
+      <div class="stat-card stat-card-large stat-top-series">
+        <img id="stat-top-thumb-inline" class="series-top-thumb" src="src/img/waifu/placeholder.jpg" alt="top series">
+        <div class="stat-card-body">
+          <h3>Series Terbanyak</h3>
+          <p id="stat-top-series">—</p>
+        </div>
+      </div>
     </div>
-    <div class="stat-box">
-      <h2 id="filtered-count">0</h2>
-      <p>Hasil Filter</p>
-    </div>
-    <div class="stat-box">
-      <h2 id="current-page">—</h2>
-      <p>Halaman</p>
     </div>
   </section>
 
   <div class="controls" role="region" aria-label="filter controls">
     <div class="letters" id="alphabet-bar" aria-hidden="false"></div>
-
     <div class="filter-right">
       <div class="filter-top">
         <select id="series-select">
           <option value="all">All Series</option>
         </select>
-
         <select id="sort-select">
           <option value="name-asc">Sort by: Name A–Z</option>
           <option value="name-desc">Sort by: Name Z–A</option>
           <option value="id-asc">Sort by: ID ↑</option>
           <option value="id-desc">Sort by: ID ↓</option>
         </select>
-
+        <button id="reset-filter" class="reset-btn">Reset</button>
         <select id="load-mode" title="Load mode">
           <option value="pagination">Pages</option>
           <option value="infinite">All Bini</option>
         </select>
-
-        <button id="reset-filter" class="reset-btn">Reset</button>
-
       </div>
-
       <div class="search-wrap">
         <input type="search" id="search-name" placeholder="Search name..." />
       </div>
-
     </div>
   </div>
-
 
   <main class="waifu-section" id="waifu-section">
     <p class="section-title" id="section-title">Daftar My Bini</p>

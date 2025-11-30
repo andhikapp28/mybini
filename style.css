@@ -365,28 +365,176 @@ textarea {
 }
 
 /* =====================   STATS   ===================== */
-.stats {
-  display: flex;
-  gap: 28px;
-  justify-content: center;
-  padding: 28px 16px;
-  background: #0b0b0b;
+/* ===== Stats layout & style (replace/append this block) ===== */
+
+:root {
+  /* sesuaikan variable ini jika projectmu beda */
+  --accent: #ff5a84;
+  /* number color */
+  --muted: #9aa0a6;
+  /* label color */
+  --bg-stat: rgba(255, 255, 255, 0.02);
+  --border-stat: rgba(255, 255, 255, 0.03);
 }
 
+/* outer section */
+.stats {
+  background: #0b0b0b;
+  padding: 22px 18px;
+  box-sizing: border-box;
+}
+
+/* inner container - keeps left and right aligned */
+.stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* left group for the three main counters */
+.stats-left {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  flex: 0 1 auto;
+}
+
+/* small stat box */
 .stat-box {
   text-align: center;
+  min-width: 96px;
 }
 
 .stat-box h2 {
   margin: 0;
   font-size: 28px;
   color: var(--accent);
+  line-height: 1;
+  font-weight: 800;
 }
 
 .stat-box p {
-  margin: 4px 0 0;
+  margin: 6px 0 0;
   color: var(--muted);
+  font-size: 13px;
 }
+
+/* right group: advanced stats */
+.stats-right {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex: 0 1 auto;
+}
+
+/* stat-card general */
+.stat-card {
+  background: linear-gradient(180deg, var(--bg-stat), rgba(255, 255, 255, 0.01));
+  border: 1px solid var(--border-stat);
+  padding: 10px 14px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  min-height: 72px;
+  min-width: 160px;
+}
+
+/* larger variant (we use it for both) */
+.stat-card-large {
+  padding: 10px 14px;
+}
+
+/* card body (text) */
+.stat-card-body h3 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.stat-card-body p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+/* Total Series specific smaller width */
+.stat-total-series {
+  min-width: 140px;
+  justify-content: center;
+}
+
+/* thumbnail for top series */
+.series-top-thumb {
+  width: 72px;
+  height: 72px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #0b0b0b;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  flex-shrink: 0;
+}
+
+/* hover effect on thumbnail */
+.series-top-thumb:hover {
+  transform: scale(1.04);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+/* responsive: stack on small screens */
+@media (max-width: 880px) {
+  .stats-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .stats-left {
+    justify-content: flex-start;
+    gap: 18px;
+    padding-left: 6px;
+  }
+
+  .stats-right {
+    justify-content: flex-start;
+    gap: 12px;
+    padding-left: 6px;
+  }
+
+  .stat-card {
+    width: 100%;
+  }
+
+  .stat-total-series {
+    justify-content: flex-start;
+  }
+
+  .series-top-thumb {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* small polish: ensure text truncation if name long */
+#stat-top-series {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 320px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+
 
 /* =====================   FILTER   ===================== */
 .controls {
@@ -395,8 +543,9 @@ textarea {
   padding: 0 18px;
   display: flex;
   gap: 16px;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 
@@ -424,10 +573,80 @@ textarea {
   box-shadow: 0 6px 18px rgba(255, 85, 122, 0.12);
 }
 
+
 .filter-right {
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
-  align-items: center;
+  justify-content: flex-start;
+   width: 100%;
+}
+
+
+.filter-right select,
+.filter-right .reset-btn,
+.filter-right input[type="number"] {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  color: white;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.filter-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 6px; 
+}
+
+.search-wrap {
+  min-width: 220px;
+  max-width: 420px;
+  width: 28%;
+  box-sizing: border-box;
+}
+
+input[type="search"]#search-name {
+  width: 100%;
+  display: block;
+  background: transparent;
+  border: 1px dashed rgba(255, 255, 255, 0.04);
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: var(--muted);
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+.reset-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.75);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.18s;
+}
+
+#sort-select {
+  min-width: 150px;
+  max-width: 260px;
+}
+
+#series-select {
+  min-width: 120px;
+  max-width: 320px;
+}
+
+#load-mode {
+  min-width: 100px;
+  max-width: 140px;
 }
 
 select,
@@ -476,7 +695,43 @@ input[type="search"] {
   box-shadow: 0 4px 14px rgba(255, 85, 122, 0.25);
 }
 
+@media (max-width: 880px) {
+  .controls {
+    padding: 12px 16px;
+  }
+  .letters {
+    width: 100%;
+    justify-content: flex-start;
+  }
 
+  .filter-right {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
+    padding-top: 8px;
+  }
+  .search-wrap {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+
+  input[type="search"]#search-name {
+    width: 100%;
+  }
+
+  #sort-select,
+  #series-select,
+  #load-mode {
+    min-width: 0;
+    width: auto;
+    flex: 1 1 140px;
+  }
+
+  .reset-btn {
+    order: 99;
+  }
+}
 
 /* =====================   WAIFU GRID   ===================== */
 .waifu-section {
@@ -892,6 +1147,7 @@ input[type="search"] {
   cursor: pointer;
 }
 
+/* =========================== GACHA ======================== */
 .gacha-section {
   max-width: 1200px;
   margin: 26px auto;
@@ -926,7 +1182,7 @@ input[type="search"] {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex: 0 0 220px;
+  flex: 0 0 100px;
   min-width: 160px;
   max-width: 280px;
 }
@@ -1229,22 +1485,44 @@ input[type="search"] {
   transform: translateY(0);
 }
 
-@media (max-width:880px) {
+@media (max-width: 880px) {
+
   .gacha-panel {
     flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
   }
 
   .gacha-stage {
-    order: 1;
+    flex: unset;
+    width: 100%;
+    min-height: 0;
+    padding: 6px 4px;
   }
 
   .gacha-controls {
-    order: 2;
     width: 100%;
-    align-items: flex-start;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
-  .gacha-controls-meta {
-    text-align: left;
+  /* Grid 10x lebih kecil & responsif */
+  .gacha-ten-wrap {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 12px;
+  }
+
+  /* Card 10x lebih kecil */
+  .gacha-ten-card {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .gacha-ten-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
   }
 }
