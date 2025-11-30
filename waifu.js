@@ -543,7 +543,7 @@ const waifus = [
 
   { id: 272, name: "Akashiya Moka", series: "Rosario to Vampire", img: "src/img/waifu/272.jpg" },
 
-  { id: 273, name: "Alisa Mikhailovna Kujou", series: "Boku no Kokoro no Yabai Yatsu", img: "src/img/waifu/273.jpg" },
+  { id: 273, name: "Alisa Mikhailovna Kujou", series: "Alya Sometimes Hides Her Feelings in Russian", img: "src/img/waifu/273.jpg" },
 
   { id: 274, name: "Karuizawa Kei", series: "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e", img: "src/img/waifu/274.jpg" },
 
@@ -619,6 +619,31 @@ const waifus = [
 
   { id: 310, name: "Nikki Su", series: "Infinity Nikki", img: "src/img/waifu/310.jpg" },
 
+  { id: 311, name: "Beatrice Aligiere Spero", series: "The Knight King Who Returned with a God", img: "src/img/waifu/311.jpg" },
+
+  { id: 312, name: "Hwaran", series: "I Killed the Main Player", img: "src/img/waifu/312.jpg" },
+  
+  { id: 313, name: "Lunia Aden", series: "I Killed the Main Player", img: "src/img/waifu/313.jpg" },
+  
+  { id: 314, name: "Marie Dunarev", series: "I Killed the Main Player", img: "src/img/waifu/314.jpg" },
+  
+  { id: 315, name: "Erin Danua", series: "I Killed the Main Player", img: "src/img/waifu/315.jpg" },
+  
+  { id: 316, name: "Alisha Aden", series: "I Killed the Main Player", img: "src/img/waifu/316.jpg" },
+
+  { id: 317, name: "Namgung Bi-ah", series: "Childhood Friend of the Zenith", img: "src/img/waifu/317.jpg" },
+  
+  { id: 318, name: "Moyong Hi-ah", series: "Childhood Friend of the Zenith", img: "src/img/waifu/318.jpg" },
+  
+  { id: 319, name: "Wi Seol-Ah", series: "Childhood Friend of the Zenith", img: "src/img/waifu/319.jpg" },
+
+  { id: 320, name: "Dolores Lun Quovadis", series: "Revenge of the Iron-Blooded Sword Hound", img: "src/img/waifu/320.jpg" },
+
+  { id: 321, name: "Janica Faylover", series: "The Extra's Academy Survival Guide", img: "src/img/waifu/321.jpg" },
+  
+  { id: 322, name: "Lucy Maeril", series: "The Extra's Academy Survival Guide", img: "src/img/waifu/322.jpg" },
+  
+  { id: 323, name: "Lortelle Kecheln", series: "The Extra's Academy Survival Guide", img: "src/img/waifu/323.jpg" },
 
 
 ];
