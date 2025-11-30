@@ -622,28 +622,35 @@ const waifus = [
   { id: 311, name: "Beatrice Aligiere Spero", series: "The Knight King Who Returned with a God", img: "src/img/waifu/311.jpg" },
 
   { id: 312, name: "Hwaran", series: "I Killed the Main Player", img: "src/img/waifu/312.jpg" },
-  
+
   { id: 313, name: "Lunia Aden", series: "I Killed the Main Player", img: "src/img/waifu/313.jpg" },
-  
+
   { id: 314, name: "Marie Dunarev", series: "I Killed the Main Player", img: "src/img/waifu/314.jpg" },
-  
+
   { id: 315, name: "Erin Danua", series: "I Killed the Main Player", img: "src/img/waifu/315.jpg" },
-  
+
   { id: 316, name: "Alisha Aden", series: "I Killed the Main Player", img: "src/img/waifu/316.jpg" },
 
   { id: 317, name: "Namgung Bi-ah", series: "Childhood Friend of the Zenith", img: "src/img/waifu/317.jpg" },
-  
+
   { id: 318, name: "Moyong Hi-ah", series: "Childhood Friend of the Zenith", img: "src/img/waifu/318.jpg" },
-  
+
   { id: 319, name: "Wi Seol-Ah", series: "Childhood Friend of the Zenith", img: "src/img/waifu/319.jpg" },
 
   { id: 320, name: "Dolores Lun Quovadis", series: "Revenge of the Iron-Blooded Sword Hound", img: "src/img/waifu/320.jpg" },
 
   { id: 321, name: "Janica Faylover", series: "The Extra's Academy Survival Guide", img: "src/img/waifu/321.jpg" },
-  
+
   { id: 322, name: "Lucy Maeril", series: "The Extra's Academy Survival Guide", img: "src/img/waifu/322.jpg" },
-  
+
   { id: 323, name: "Lortelle Kecheln", series: "The Extra's Academy Survival Guide", img: "src/img/waifu/323.jpg" },
 
+  { id: 324, name: "Kanoe Yuuko", series: "Tasogare Otome x Amnesia", img: "src/img/waifu/324.jpg" },
+ 
+  { id: 325, name: "Waguri Kaoruko", series: "Kaoru Hana wa Rin to Saku", img: "src/img/waifu/325.jpg" },
+  
+  { id: 326, name: "Shirayuki", series: "Akagami no Shirayuki-hime", img: "src/img/waifu/326.jpg" },
+  
+  { id: 327, name: "Nyaruko", series: "Haiyore! Nyaruko-san", img: "src/img/waifu/327.jpg" },
 
 ];

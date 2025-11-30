@@ -452,3 +452,170 @@ if (USE_INFINITE_SCROLL) {
   });
   setTimeout(updateVisibility, 80);
 })();
+
+/* ===== GACHA ===== */
+(function () {
+  const stage = document.getElementById('gacha-stage');
+  const btn1x = document.getElementById('gacha-1x') || document.getElementById('gacha-btn-large');
+  const btn10x = document.getElementById('gacha-10x');
+  if (!stage || !btn1x || !btn10x) return;
+
+  const FALLBACK_IMG = 'src/img/waifu/placeholder.jpg';
+
+  function escapeHtml(s) { if (s == null) return ''; return String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch])); }
+  function randInt(max) { return Math.floor(Math.random() * max); }
+
+  function synthPop() {
+    try {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      const ctx = new Ctx();
+      const now = ctx.currentTime;
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.type = 'sine';
+      o.frequency.setValueAtTime(700, now);
+      o.frequency.exponentialRampToValueAtTime(1100, now + 0.05);
+      g.gain.setValueAtTime(0.0001, now);
+      g.gain.exponentialRampToValueAtTime(0.5, now + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+      o.connect(g); g.connect(ctx.destination); o.start(now); o.stop(now + 0.32);
+    } catch (e) { }
+  }
+
+  function pickRarity() {
+    const r = Math.random() * 100;
+    if (r < 5) return 'SSR';
+    if (r < 30) return 'SR';
+    return 'R';
+  }
+  function capsuleClassFor(r) { return `rarity-${r}`; }
+
+  function renderIdle() {
+    stage.classList.remove('gacha-stage-rolling');
+    stage.innerHTML = `<div class="gacha-stage-inner"><div style="font-weight:700">Gacha Bini</div><div style="font-size:13px;opacity:.86">Klik tombol untuk mencoba keberuntungan</div></div>`;
+  }
+
+  function renderRolling(n, rarities) {
+    stage.classList.add('gacha-stage-rolling');
+    stage.innerHTML = '';
+    const wrap = document.createElement('div');
+    wrap.className = 'gacha-capsule-wrap';
+    for (let i = 0; i < n; i++) {
+      const c = document.createElement('div');
+      c.className = 'gacha-capsule bob';
+      if (Array.isArray(rarities) && rarities[i]) c.classList.add(capsuleClassFor(rarities[i]));
+      wrap.appendChild(c);
+    }
+    const info = document.createElement('div');
+    info.style.marginLeft = '12px';
+    info.innerHTML = `<div style="font-weight:700">${n === 1 ? 'Menggacha...' : 'Menggacha ' + n + '×...'}</div><div style="font-size:13px;opacity:.86">${n === 1 ? 'Kapsul berputar' : 'Menarik kapsul'}</div>`;
+    stage.appendChild(wrap);
+    stage.appendChild(info);
+    requestAnimationFrame(() => { if (wrap.scrollWidth > wrap.clientWidth) wrap.scrollTo({ left: (wrap.scrollWidth - wrap.clientWidth) / 2, behavior: 'smooth' }); });
+    synthPop();
+    return wrap;
+  }
+
+  function revealCapsules(wrap, cb) {
+    const caps = Array.from(wrap.querySelectorAll('.gacha-capsule'));
+    caps.forEach((cap, i) => setTimeout(() => {
+      cap.classList.remove('bob');
+      cap.classList.add('reveal', 'gacha-shake');
+      synthPop();
+      setTimeout(() => cap.classList.remove('gacha-shake'), 700);
+    }, i * 110));
+    const total = caps.length * 110 + 300;
+    setTimeout(() => { if (cb) cb(); }, total);
+  }
+
+  function renderSingle(w, rarity) {
+    stage.classList.remove('gacha-stage-rolling');
+    const thumb = (w && w.img) ? w.img : FALLBACK_IMG;
+    const name = (w && w.name) ? w.name : 'Unknown';
+    const series = (w && w.series) ? w.series : 'Unknown Series';
+    stage.innerHTML = `
+      <article class="gacha-inline-card gacha-fade-in">
+        <img class="gacha-inline-thumb ${rarity === 'SSR' ? 'gacha-ssr-glow' : ''}" src="${escapeHtml(thumb)}" alt="${escapeHtml(name)}">
+        <div class="gacha-inline-main">
+          <p class="gacha-inline-name">${escapeHtml(name)} <span class="rarity-badge ${capsuleClassFor(rarity)}">${escapeHtml(rarity)}</span></p>
+          <p class="gacha-inline-series">${escapeHtml(series)}</p>
+          <div class="gacha-inline-meta">ID: ${escapeHtml(String(w && w.id != null ? w.id : '—'))}</div>
+        </div>
+      </article>
+    `;
+    requestAnimationFrame(() => { const el = stage.querySelector('.gacha-fade-in'); if (el) el.classList.add('show'); });
+    const t = stage.querySelector('.gacha-inline-thumb');
+    if (t) {
+      t.classList.add('gacha-shake');
+      setTimeout(() => t.classList.remove('gacha-shake'), 700);
+    }
+    synthPop();
+    stage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function renderTen(results) {
+    stage.classList.remove('gacha-stage-rolling');
+    const resultsWrap = document.createElement('div');
+    resultsWrap.className = 'gacha-stage-results';
+    const grid = document.createElement('div'); grid.className = 'gacha-ten-wrap';
+    results.forEach((it, idx) => {
+      const card = document.createElement('div'); card.className = 'gacha-ten-card gacha-fade-in';
+      const imgSrc = (it.w && it.w.img) ? it.w.img : FALLBACK_IMG;
+      const name = (it.w && it.w.name) ? it.w.name : 'Unknown';
+      const series = (it.w && it.w.series != null) ? it.w.series : '—';
+      const imgHtml = `<img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(name)}" class="${it.r === 'SSR' ? 'gacha-ssr-glow' : ''}">`;
+      card.innerHTML = `${imgHtml}<div class="gacha-ten-badge ${capsuleClassFor(it.r)}">${escapeHtml(it.r)}</div><div class="gacha-ten-info">${escapeHtml(name)} • ${escapeHtml(String(series))}</div>`;
+      grid.appendChild(card);
+      setTimeout(() => card.classList.add('show'), 90 * idx);
+    });
+    resultsWrap.appendChild(grid);
+    stage.innerHTML = '';
+    stage.appendChild(resultsWrap);
+    stage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+
+  }
+
+  let rolling = false;
+  function do1x() {
+    if (rolling) return;
+    rolling = true; btn1x.disabled = true; btn1x.classList.add('gacha-shake');
+    setTimeout(() => btn1x.classList.remove('gacha-shake'), 700); btn10x.disabled = true;
+    btn10x.classList.add('gacha-shake');
+    setTimeout(() => btn10x.classList.remove('gacha-shake'), 700);
+    const rarity = pickRarity();
+    const wrap = renderRolling(1, [rarity]);
+    revealCapsules(wrap, () => {
+      const idx = (Array.isArray(waifus) && waifus.length) ? randInt(waifus.length) : -1;
+      const w = idx >= 0 ? waifus[idx] : { name: 'Unknown', series: 'Unknown', img: FALLBACK_IMG, id: '—' };
+      renderSingle(w, rarity);
+      rolling = false; btn1x.disabled = false; btn10x.disabled = false;
+    });
+  }
+
+  function do10x() {
+    if (rolling) return;
+    rolling = true; btn1x.disabled = true; btn10x.disabled = true;
+    const rarities = Array.from({ length: 10 }, () => pickRarity());
+    const wrap = renderRolling(10, rarities);
+    revealCapsules(wrap, () => {
+      const results = rarities.map(r => {
+        const idx = (Array.isArray(waifus) && waifus.length) ? randInt(waifus.length) : -1;
+        const w = idx >= 0 ? waifus[idx] : { name: 'Unknown', series: 'Unknown', img: FALLBACK_IMG, id: '—' };
+        return { r, w };
+      });
+      setTimeout(() => { renderTen(results); rolling = false; btn1x.disabled = false; btn10x.disabled = false; }, 240);
+    });
+  }
+
+  btn1x.addEventListener('click', do1x);
+  btn10x.addEventListener('click', do10x);
+  btn1x.addEventListener('keyup', (e) => { if (e.key === 'Enter') do1x(); });
+  btn10x.addEventListener('keyup', (e) => { if (e.key === 'Enter') do10x(); });
+  renderIdle();
+  window.doGacha1x = do1x; window.doGacha10x = do10x;
+
+})();
+
+
+
