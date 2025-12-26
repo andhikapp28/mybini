@@ -697,7 +697,3 @@ if (USE_INFINITE_SCROLL) {
   window.updateSeriesStats = updateSeriesStats;
 
 })();
-
-
-
-
