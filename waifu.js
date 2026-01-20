@@ -661,5 +661,6 @@ const waifus = [
 
   { id: 331, name: "Perlica", series: "Arknights: Endfield", img: "src/img/waifu/331.jpg" },
 
+  { id: 332, name: "Aemeath", series: "Wuthering Waves", img: "src/img/waifu/332.jpg" },
 
 ];
