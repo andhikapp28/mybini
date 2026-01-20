@@ -653,4 +653,13 @@ const waifus = [
   
   { id: 327, name: "Nyaruko", series: "Haiyore! Nyaruko-san", img: "src/img/waifu/327.jpg" },
 
+  { id: 328, name: "Yvonne", series: "Arknights: Endfield", img: "src/img/waifu/328.jpg" },
+
+  { id: 329, name: "Ardelia", series: "Arknights: Endfield", img: "src/img/waifu/329.jpg" },
+
+  { id: 330, name: "Laevatain", series: "Arknights: Endfield", img: "src/img/waifu/330.jpg" },
+
+  { id: 331, name: "Perlica", series: "Arknights: Endfield", img: "src/img/waifu/331.jpg" },
+
+
 ];

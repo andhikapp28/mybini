@@ -4,7 +4,7 @@ from PIL import Image
 folder = "src/img/waifu"  # folder saat ini
 
 for filename in os.listdir(folder):
-    if filename.lower().endswith((".webp", ".png", ".jpeg", ".avif")):
+    if filename.lower().endswith((".webp", ".png", ".jpeg", ".avif", "jfif")):
         input_path = os.path.join(folder, filename)
         
         new_path = os.path.splitext(input_path)[0] + ".jpg"
