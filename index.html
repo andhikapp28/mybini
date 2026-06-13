@@ -23,6 +23,20 @@
     </div>
   </section>
 
+  <!-- WAIFU OF THE DAY -->
+  <section class="wotd-section" aria-label="Waifu of the Day">
+    <div class="wotd-inner">
+      <div class="wotd-badge">&#11088; Waifu of the Day</div>
+      <img id="wotd-img" class="wotd-thumb" src="src/img/waifu/placeholder.jpg" alt="Waifu of the Day">
+      <div class="wotd-info">
+        <p id="wotd-name" class="wotd-name">Loading...</p>
+        <p id="wotd-series" class="wotd-series"></p>
+      </div>
+      <div id="wotd-date" class="wotd-date"></div>
+      <button id="wotd-view-btn" class="wotd-view-btn">Lihat</button>
+    </div>
+  </section>
+
   <section class="new-waifu new-waifu-glitch" aria-label="New Waifu">
     <div class="nw-bg-text" aria-hidden="true">NEW WAIFU</div>
 
@@ -52,6 +66,18 @@
           <small style="color:var(--muted);display:block;margin-top:6px">Rarity: <strong>SSR</strong> /
             <strong>SR</strong> / <strong>R</strong></small>
         </div>
+        <div class="pity-tracker" id="pity-tracker" aria-label="Pity counter">
+          <div class="pity-row">
+            <span class="pity-label">SSR</span>
+            <div class="pity-bar"><div class="pity-fill pity-ssr-fill" id="pity-ssr-fill"></div></div>
+            <span class="pity-count" id="pity-ssr-count">0/90</span>
+          </div>
+          <div class="pity-row">
+            <span class="pity-label">SR</span>
+            <div class="pity-bar"><div class="pity-fill pity-sr-fill" id="pity-sr-fill"></div></div>
+            <span class="pity-count" id="pity-sr-count">0/10</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -75,6 +101,10 @@
         <div class="stat-box">
           <h2 id="current-page">—</h2>
           <p>Halaman</p>
+        </div>
+        <div class="stat-box stat-box-fav">
+          <h2 id="fav-count">0</h2>
+          <p>Favorit</p>
         </div>
       </div>
       <div class="stat-card stat-card-large stat-top-series">
@@ -102,6 +132,8 @@
           <option value="id-desc">Sort by: ID ↓</option>
         </select>
         <button id="reset-filter" class="reset-btn">Reset</button>
+        <button id="fav-filter-btn" class="fav-filter-btn" title="Show favorites only">&#9825; Favorit</button>
+        <button id="open-tierlist" class="tierlist-open-btn" title="Open tier list">Tier List</button>
         <select id="load-mode" title="Load mode">
           <option value="pagination">Pages</option>
           <option value="infinite">All Bini</option>
@@ -120,6 +152,7 @@
   </main>
 
   <script src="waifu.js"></script>
+  <script src="features.js"></script>
   <script src="script.js"></script>
 
   <div id="waifu-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="waifu-modal-title">
@@ -157,6 +190,45 @@
   <button id="back-to-top" class="back-to-top" aria-hidden="true" title="Back to top" aria-label="Back to top">
     ▲
   </button>
+
+  <!-- SERIES DRAWER -->
+  <div id="series-drawer" aria-hidden="true" role="dialog" aria-labelledby="series-drawer-title">
+    <div class="series-drawer-overlay"></div>
+    <div class="series-drawer-panel">
+      <div class="series-drawer-header">
+        <h3 id="series-drawer-title">Series</h3>
+        <button class="series-drawer-close" aria-label="Close">&#10005;</button>
+      </div>
+      <p id="series-drawer-count" class="series-drawer-count"></p>
+      <div id="series-drawer-grid" class="series-drawer-grid"></div>
+    </div>
+  </div>
+
+  <!-- TIER LIST MODAL -->
+  <div id="tierlist-modal" aria-hidden="true" role="dialog" aria-labelledby="tierlist-heading">
+    <div class="tierlist-panel">
+      <div class="tierlist-header">
+        <h2 id="tierlist-heading">Waifu Tier List</h2>
+        <div class="tierlist-header-actions">
+          <button id="tierlist-reset" class="tierlist-action-btn">Reset</button>
+          <button id="tierlist-close" class="tierlist-close-btn" aria-label="Close">&#10005;</button>
+        </div>
+      </div>
+      <div class="tierlist-body">
+        <div class="tierlist-tiers">
+          <div class="tier-row" data-tier="S"><div class="tier-label tier-s">S</div><div class="tier-cards" id="tier-S"></div></div>
+          <div class="tier-row" data-tier="A"><div class="tier-label tier-a">A</div><div class="tier-cards" id="tier-A"></div></div>
+          <div class="tier-row" data-tier="B"><div class="tier-label tier-b">B</div><div class="tier-cards" id="tier-B"></div></div>
+          <div class="tier-row" data-tier="C"><div class="tier-label tier-c">C</div><div class="tier-cards" id="tier-C"></div></div>
+          <div class="tier-row" data-tier="D"><div class="tier-label tier-d">D</div><div class="tier-cards" id="tier-D"></div></div>
+        </div>
+        <div class="tierlist-unranked">
+          <div class="tierlist-unranked-label">Unranked — drag atau tap kartu untuk assign tier</div>
+          <div class="tier-cards" id="tier-unranked"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

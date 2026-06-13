@@ -14,8 +14,11 @@ let state = {
   sort: 'name-asc',
   pageSize: DEFAULT_ITEM_TARGET,
   page: 1,
-  loading: false
+  loading: false,
+  favOnly: false
 };
+
+let lastFocusedCard = null;
 
 /* DOM */
 const alphabetBar = document.getElementById('alphabet-bar');
@@ -127,11 +130,36 @@ sortSelect.addEventListener('change', () => {
 /* reset */
 resetBtn.addEventListener('click', () => {
   state.alphabet = 'all'; state.series = 'all'; state.search = ''; state.sort = 'name-asc'; state.page = 1;
+  state.favOnly = false;
   searchInput.value = ''; seriesSelect.value = 'all'; sortSelect.value = 'name-asc';
   alphabetBar.querySelectorAll('button').forEach(b => b.classList.toggle('active', b.dataset.letter === 'all'));
+  const favBtn = document.getElementById('fav-filter-btn');
+  if (favBtn) favBtn.classList.remove('active');
   waifuGrid.innerHTML = '';
   if (USE_INFINITE_SCROLL) loadNextPage(true); else renderList();
 });
+
+/* fav filter */
+(function () {
+  const favFilterBtn = document.getElementById('fav-filter-btn');
+  if (!favFilterBtn) return;
+  favFilterBtn.addEventListener('click', () => {
+    state.favOnly = !state.favOnly;
+    favFilterBtn.classList.toggle('active', state.favOnly);
+    state.page = 1;
+    waifuGrid.innerHTML = '';
+    if (USE_INFINITE_SCROLL) loadNextPage(true); else renderList();
+  });
+  /* re-render if favorites change while favOnly is active */
+  window.onFavoritesChange = function () {
+    const el = document.getElementById('fav-count');
+    if (el && window.getFavoriteIds) el.textContent = window.getFavoriteIds().length;
+    if (state.favOnly) {
+      waifuGrid.innerHTML = '';
+      if (USE_INFINITE_SCROLL) loadNextPage(true); else renderList();
+    }
+  };
+})();
 
 /* load-mode select */
 if (loadModeSelect) {
@@ -157,6 +185,10 @@ function getFilteredData() {
   if (state.search) {
     data = data.filter(w => w.name.toLowerCase().includes(state.search));
   }
+  if (state.favOnly && window.getFavoriteIds) {
+    const favIds = new Set(window.getFavoriteIds());
+    data = data.filter(w => favIds.has(w.id));
+  }
   switch (state.sort) {
     case 'id-asc': data.sort((a, b) => a.id - b.id); break;
     case 'id-desc': data.sort((a, b) => b.id - a.id); break;
@@ -171,13 +203,18 @@ function getFilteredData() {
 function createCard(w) {
   const card = document.createElement('article');
   card.className = 'waifu-card';
+  card.tabIndex = 0;
   card.dataset.id = w.id;
+  const isFav = window.isFavorite ? window.isFavorite(w.id) : false;
   card.innerHTML = `
     <span class="id-badge">${escapeHtml(String(w.id))}</span>
-    <img class="waifu-thumb" loading="lazy" src="${w.img}" alt="${escapeHtml(w.name)} — ${escapeHtml(w.series)}">
+    <button class="fav-btn${isFav ? ' active' : ''}" type="button" aria-label="${isFav ? 'Remove from favorites' : 'Add to favorites'}">&#9829;</button>
+    <div class="waifu-thumb-wrap">
+      <img class="waifu-thumb" loading="lazy" src="${w.img}" alt="${escapeHtml(w.name)} — ${escapeHtml(w.series)}">
+    </div>
     <div class="waifu-info">
       <h3>${escapeHtml(w.name)}</h3>
-      <p>${escapeHtml(w.series)}</p>
+      <p class="waifu-series-tag" data-series="${escapeHtml(w.series)}">${escapeHtml(w.series)}</p>
     </div>`;
   attachParallax(card);
   return card;
@@ -186,16 +223,25 @@ function createCard(w) {
 /* parallax */
 function attachParallax(card) {
   if (card.__parallaxAttached) return;
+  if (window.matchMedia('(pointer: coarse)').matches) return;
   const img = card.querySelector('.waifu-thumb');
   if (!img) return;
   card.__parallaxAttached = true;
+  let rafId = null;
+  let pendingX = 0, pendingY = 0;
   function onMove(e) {
     const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    img.style.transform = `translate(${x * 12}px, ${y * 10}px) scale(1.05)`;
+    pendingX = (e.clientX - r.left) / r.width - 0.5;
+    pendingY = (e.clientY - r.top) / r.height - 0.5;
+    if (!rafId) {
+      rafId = requestAnimationFrame(() => {
+        img.style.transform = `translate(${pendingX * 12}px, ${pendingY * 10}px) scale(1.05)`;
+        rafId = null;
+      });
+    }
   }
   function onLeave() {
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
     img.style.transition = 'transform 240ms cubic-bezier(.2,.9,.2,1)';
     img.style.transform = '';
     setTimeout(() => img.style.transition = '', 260);
@@ -233,8 +279,7 @@ function renderPagination(totalItems, pageSize, currentPage) {
   pages.forEach(p => {
     if (p === '...') {
       const span = document.createElement('span');
-      span.style.padding = '8px 10px';
-      span.style.color = 'var(--muted)';
+      span.className = 'page-ellipsis';
       span.textContent = '...';
       paginationWrap.appendChild(span);
     } else {
@@ -316,7 +361,6 @@ function openModal(w) {
   const refs = modalRefs();
   if (!refs.modal) return;
 
-
   document.body.style.overflow = 'hidden';
 
   refs.modal.style.display = 'block';
@@ -326,6 +370,15 @@ function openModal(w) {
   if (refs.modalTitle) refs.modalTitle.textContent = w.name || '';
   if (refs.modalSeries) refs.modalSeries.textContent = w.series || '';
   if (refs.modalId) refs.modalId.textContent = String(w.id || '');
+
+  const panel = refs.modal.querySelector('.modal-panel');
+  if (panel) {
+    requestAnimationFrame(() => requestAnimationFrame(() => panel.classList.add('is-open')));
+  }
+  setTimeout(() => {
+    const closeBtn = refs.modal.querySelector('.modal-close');
+    if (closeBtn) closeBtn.focus();
+  }, 60);
 }
 
 function closeModal() {
@@ -334,16 +387,29 @@ function closeModal() {
 
   document.body.style.overflow = '';
 
-  refs.modal.style.display = 'none';
-  refs.modal.setAttribute('aria-hidden', 'true');
+  const panel = refs.modal.querySelector('.modal-panel');
+  if (panel) panel.classList.remove('is-open');
 
-  if (refs.modalImg) refs.modalImg.src = '';
+  setTimeout(() => {
+    refs.modal.style.display = 'none';
+    refs.modal.setAttribute('aria-hidden', 'true');
+    if (refs.modalImg) refs.modalImg.src = '';
+    if (lastFocusedCard) { lastFocusedCard.focus(); lastFocusedCard = null; }
+  }, 320);
 }
+
+window.openWaifuById = function (id) {
+  const w = waifus.find(x => x.id === id);
+  if (w) openModal(w);
+};
 
 document.addEventListener('click', (e) => {
   if (e.target.closest && e.target.closest('[data-action="close"]')) { closeModal(); return; }
+  if (e.target.closest && e.target.closest('.fav-btn')) return;
+  if (e.target.closest && e.target.closest('.waifu-series-tag')) return;
   const card = e.target.closest && e.target.closest('.waifu-card');
   if (card) {
+    lastFocusedCard = card;
     const id = Number(card.dataset.id);
     const w = waifus.find(x => x.id === id);
     if (w) openModal(w);
@@ -403,12 +469,7 @@ if (USE_INFINITE_SCROLL) {
   };
 
   function scrollToTarget() {
-    const el = getTarget();
-    if (!el) return window.scrollTo({ top: 0, behavior: 'smooth' });
-    const rect = el.getBoundingClientRect();
-    const absoluteTop = window.scrollY + rect.top;
-    const targetY = Math.max(0, absoluteTop - SCROLL_OFFSET);
-    window.scrollTo({ top: targetY, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function updateVisibility() {
@@ -483,6 +544,7 @@ if (USE_INFINITE_SCROLL) {
   }
 
   function pickRarity() {
+    if (typeof window.pickRarityWithPity === 'function') return window.pickRarityWithPity();
     const r = Math.random() * 100;
     if (r < 5) return 'SSR';
     if (r < 30) return 'SR';
@@ -492,7 +554,7 @@ if (USE_INFINITE_SCROLL) {
 
   function renderIdle() {
     stage.classList.remove('gacha-stage-rolling');
-    stage.innerHTML = `<div class="gacha-stage-inner"><div style="font-weight:700">Gacha Bini</div><div style="font-size:13px;opacity:.86">Klik tombol untuk mencoba keberuntungan</div></div>`;
+    stage.innerHTML = `<div class="gacha-stage-inner"><div class="gacha-idle-title">Gacha Bini</div><div class="gacha-idle-sub">Klik tombol untuk mencoba keberuntungan</div></div>`;
   }
 
   function renderRolling(n, rarities) {
@@ -507,8 +569,7 @@ if (USE_INFINITE_SCROLL) {
       wrap.appendChild(c);
     }
     const info = document.createElement('div');
-    info.style.marginLeft = '12px';
-    info.innerHTML = `<div style="font-weight:700">${n === 1 ? 'Menggacha...' : 'Menggacha ' + n + '×...'}</div><div style="font-size:13px;opacity:.86">${n === 1 ? 'Kapsul berputar' : 'Menarik kapsul'}</div>`;
+    info.innerHTML = `<div class="gacha-rolling-title">${n === 1 ? 'Menggacha...' : 'Menggacha ' + n + '×...'}</div><div class="gacha-rolling-sub">${n === 1 ? 'Kapsul berputar' : 'Menarik kapsul'}</div>`;
     stage.appendChild(wrap);
     stage.appendChild(info);
     requestAnimationFrame(() => { if (wrap.scrollWidth > wrap.clientWidth) wrap.scrollTo({ left: (wrap.scrollWidth - wrap.clientWidth) / 2, behavior: 'smooth' }); });
@@ -576,6 +637,34 @@ if (USE_INFINITE_SCROLL) {
 
   }
 
+  /* Rarity pools — SSR: iconic picks, SR: mid-tier, R: everything else */
+  const SSR_IDS = new Set([1,10,11,15,18,20,34,35,53,68,77,93,95,104,119,128,151,167,212,225,237]);
+  const SR_IDS  = new Set([2,3,4,5,6,7,8,9,12,13,14,16,17,19,21,22,23,24,25,26,27,28,29,30,31,
+    32,33,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,54,55,56,57,58,59,60,61,62,63,64,
+    65,66,67,69,70,71,72,73,74,75,76,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,94,96,97,98,
+    99,100,101,102,103,105,106,107,108,109,110,111,112]);
+
+  function getRarityPool(rarity) {
+    const pool = waifus.filter(w => {
+      if (rarity === 'SSR') return SSR_IDS.has(w.id);
+      if (rarity === 'SR')  return SR_IDS.has(w.id);
+      return !SSR_IDS.has(w.id) && !SR_IDS.has(w.id);
+    });
+    return pool.length > 0 ? pool : waifus;
+  }
+
+  function addRipple(btn, e) {
+    const rect = btn.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = e.clientX - rect.left - size / 2;
+    const y = e.clientY - rect.top - size / 2;
+    const ripple = document.createElement('span');
+    ripple.className = 'gacha-ripple';
+    ripple.style.cssText = `width:${size}px;height:${size}px;left:${x}px;top:${y}px`;
+    btn.appendChild(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove());
+  }
+
   let rolling = false;
   function do1x() {
     if (rolling) return;
@@ -586,8 +675,8 @@ if (USE_INFINITE_SCROLL) {
     const rarity = pickRarity();
     const wrap = renderRolling(1, [rarity]);
     revealCapsules(wrap, () => {
-      const idx = (Array.isArray(waifus) && waifus.length) ? randInt(waifus.length) : -1;
-      const w = idx >= 0 ? waifus[idx] : { name: 'Unknown', series: 'Unknown', img: FALLBACK_IMG, id: '—' };
+      const pool = getRarityPool(rarity);
+      const w = pool[randInt(pool.length)];
       renderSingle(w, rarity);
       rolling = false; btn1x.disabled = false; btn10x.disabled = false;
     });
@@ -600,16 +689,16 @@ if (USE_INFINITE_SCROLL) {
     const wrap = renderRolling(10, rarities);
     revealCapsules(wrap, () => {
       const results = rarities.map(r => {
-        const idx = (Array.isArray(waifus) && waifus.length) ? randInt(waifus.length) : -1;
-        const w = idx >= 0 ? waifus[idx] : { name: 'Unknown', series: 'Unknown', img: FALLBACK_IMG, id: '—' };
+        const pool = getRarityPool(r);
+        const w = pool[randInt(pool.length)];
         return { r, w };
       });
       setTimeout(() => { renderTen(results); rolling = false; btn1x.disabled = false; btn10x.disabled = false; }, 240);
     });
   }
 
-  btn1x.addEventListener('click', do1x);
-  btn10x.addEventListener('click', do10x);
+  btn1x.addEventListener('click', (e) => { addRipple(btn1x, e); do1x(); });
+  btn10x.addEventListener('click', (e) => { addRipple(btn10x, e); do10x(); });
   btn1x.addEventListener('keyup', (e) => { if (e.key === 'Enter') do1x(); });
   btn10x.addEventListener('keyup', (e) => { if (e.key === 'Enter') do10x(); });
 
