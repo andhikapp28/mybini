@@ -537,6 +537,12 @@ textarea {
   -webkit-backdrop-filter: blur(18px) saturate(1.4);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   padding: 14px 18px;
+}
+
+.controls-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   gap: 16px;
   align-items: flex-start;
@@ -882,7 +888,7 @@ input[type="number"]:focus-visible {
 
 @media (max-width: 520px) {
   .waifu-thumb { height: 320px; }
-  .controls { gap: 8px; }
+  .controls-inner { gap: 8px; }
   .letters button { padding: 6px 6px; font-size: 12px; }
 }
 
@@ -1922,6 +1928,80 @@ input[type="number"]:focus-visible {
 .tpp-d { background: #5b9bd5; color: #fff; }
 .tpp-rm { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); font-size: 15px; }
 .tpp-rm:hover { background: rgba(255,85,122,0.2); color: var(--accent); }
+
+/* ============================================================
+   LAZY IMAGE FADE-IN
+   ============================================================ */
+.img-lazy {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.img-lazy.img-lazy-loaded {
+  opacity: 1;
+}
+
+/* ============================================================
+   SKELETON LOADING
+   ============================================================ */
+@keyframes skeleton-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.waifu-skeleton {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 85, 122, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.waifu-skeleton-thumb {
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+.waifu-skeleton-body {
+  padding: 12px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.waifu-skeleton-line {
+  height: 14px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+.waifu-skeleton-line.short { width: 60%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .waifu-skeleton-thumb,
+  .waifu-skeleton-line {
+    animation: none;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .img-lazy { opacity: 1; }
+  .img-lazy.img-lazy-loaded { opacity: 1; }
+}
 
 /* ============================================================
    RESPONSIVE TWEAKS (new features)

@@ -20,7 +20,13 @@ const _favorites = (function () {
   function persist() {
     localStorage.setItem(KEY, JSON.stringify([...favSet]));
     const el = document.getElementById('fav-count');
-    if (el) el.textContent = favSet.size;
+    if (el) {
+      if (typeof window.animateCounter === 'function') {
+        window.animateCounter(el, favSet.size);
+      } else {
+        el.textContent = favSet.size;
+      }
+    }
     if (typeof window.onFavoritesChange === 'function') window.onFavoritesChange();
   }
 
@@ -89,6 +95,7 @@ const _favorites = (function () {
 
 /* ═══════════════════════════════════════════════════════════
    3. WAIFU OF THE DAY
+   (runs after _waifuReady resolves, registered on DOMContentLoaded)
    ══════════════════════════════════════════════════════════= */
 (function () {
   function seededRandom(seed) {
@@ -96,11 +103,11 @@ const _favorites = (function () {
     return x - Math.floor(x);
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    if (typeof waifus === 'undefined' || !waifus.length) return;
+  function initWOTD() {
+    if (!window.waifus || !window.waifus.length) return;
     const d    = new Date();
     const seed = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
-    const wotd = waifus[Math.floor(seededRandom(seed) * waifus.length)];
+    const wotd = window.waifus[Math.floor(seededRandom(seed) * window.waifus.length)];
 
     const img    = document.getElementById('wotd-img');
     const name   = document.getElementById('wotd-name');
@@ -115,6 +122,14 @@ const _favorites = (function () {
     if (btn)    btn.addEventListener('click', () => {
       if (typeof window.openWaifuById === 'function') window.openWaifuById(wotd.id);
     });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window._waifuReady) {
+      window._waifuReady.then(initWOTD);
+    } else {
+      initWOTD();
+    }
   });
 })();
 
@@ -123,8 +138,8 @@ const _favorites = (function () {
    ══════════════════════════════════════════════════════════= */
 const _seriesDrawer = (function () {
   function open(seriesName) {
-    if (typeof waifus === 'undefined') return;
-    const list   = waifus.filter(w => w.series === seriesName);
+    if (!window.waifus) return;
+    const list   = window.waifus.filter(w => w.series === seriesName);
     const drawer = document.getElementById('series-drawer');
     const title  = document.getElementById('series-drawer-title');
     const count  = document.getElementById('series-drawer-count');
@@ -138,13 +153,27 @@ const _seriesDrawer = (function () {
     list.forEach(w => {
       const card = document.createElement('div');
       card.className = 'sdrawer-card';
-      card.innerHTML = `<img src="${escHtml(w.img)}" alt="${escHtml(w.name)}" loading="lazy"><div class="sdrawer-name">${escHtml(w.name)}</div>`;
+      const img = document.createElement('img');
+      img.src = escHtml(w.img);
+      img.alt = escHtml(w.name);
+      img.loading = 'lazy';
+      img.className = 'img-lazy';
+      card.appendChild(img);
+      const nameDiv = document.createElement('div');
+      nameDiv.className = 'sdrawer-name';
+      nameDiv.textContent = w.name;
+      card.appendChild(nameDiv);
       card.addEventListener('click', () => {
         close();
         setTimeout(() => { if (typeof window.openWaifuById === 'function') window.openWaifuById(w.id); }, 340);
       });
       grid.appendChild(card);
     });
+
+    /* attach lazy observer to new images */
+    if (typeof window._lazyObserver !== 'undefined' && window._lazyObserver) {
+      grid.querySelectorAll('img.img-lazy').forEach(el => window._lazyObserver.observe(el));
+    }
 
     drawer.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -193,14 +222,14 @@ const _seriesDrawer = (function () {
 
   function getUnrankedIds() {
     const ranked = new Set(TIERS.flatMap(t => tierData[t] || []));
-    return (typeof waifus !== 'undefined' ? waifus : []).filter(w => !ranked.has(w.id)).map(w => w.id);
+    return (window.waifus || []).filter(w => !ranked.has(w.id)).map(w => w.id);
   }
 
   /* tier-picker popup (touch / click alternative to drag) */
   function showTierPicker(id, anchorEl) {
     document.getElementById('tier-picker-popup') && document.getElementById('tier-picker-popup').remove();
 
-    const waifu = (typeof waifus !== 'undefined') ? waifus.find(w => w.id === id) : null;
+    const waifu = (window.waifus) ? window.waifus.find(w => w.id === id) : null;
     const popup = document.createElement('div');
     popup.id = 'tier-picker-popup';
     popup.className = 'tier-picker-popup';
@@ -239,7 +268,24 @@ const _seriesDrawer = (function () {
     el.draggable = true;
     el.dataset.id = String(w.id);
     el.title = w.name;
-    el.innerHTML = `<img src="${escHtml(w.img)}" alt="${escHtml(w.name)}" loading="lazy"><div class="tier-thumb-name">${escHtml(w.name)}</div>`;
+
+    const img = document.createElement('img');
+    img.src = escHtml(w.img);
+    img.alt = escHtml(w.name);
+    img.loading = 'lazy';
+    img.className = 'img-lazy';
+
+    const nameDiv = document.createElement('div');
+    nameDiv.className = 'tier-thumb-name';
+    nameDiv.textContent = w.name;
+
+    el.appendChild(img);
+    el.appendChild(nameDiv);
+
+    /* attach lazy observer */
+    if (typeof window._lazyObserver !== 'undefined' && window._lazyObserver) {
+      window._lazyObserver.observe(img);
+    }
 
     el.addEventListener('dragstart', e => {
       dragId = w.id;
@@ -273,8 +319,8 @@ const _seriesDrawer = (function () {
   }
 
   function renderTierList() {
-    if (typeof waifus === 'undefined') return;
-    const wmap = new Map(waifus.map(w => [w.id, w]));
+    if (!window.waifus) return;
+    const wmap = new Map(window.waifus.map(w => [w.id, w]));
 
     TIERS.forEach(t => {
       const zone = document.getElementById('tier-' + t);
@@ -323,16 +369,47 @@ const _seriesDrawer = (function () {
     }, 200);
   }
 
+  /* Export tier list as PNG using html2canvas */
+  function exportTierListPNG() {
+    const tiersEl = document.querySelector('.tierlist-tiers');
+    if (!tiersEl) return;
+    if (typeof html2canvas !== 'function') {
+      alert('html2canvas not loaded — PNG export unavailable.');
+      return;
+    }
+    const btn = document.getElementById('tierlist-export');
+    if (btn) { btn.disabled = true; btn.textContent = 'Exporting...'; }
+
+    html2canvas(tiersEl, {
+      backgroundColor: '#0d0d0d',
+      scale: 2,
+      useCORS: true,
+      logging: false
+    }).then(function (canvas) {
+      const link = document.createElement('a');
+      link.download = 'waifu-tierlist.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }).catch(function (err) {
+      console.error('[tierlist] export failed:', err);
+      alert('Export failed: ' + err.message);
+    }).finally(function () {
+      if (btn) { btn.disabled = false; btn.textContent = 'Export PNG'; }
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
-    const openBtn  = document.getElementById('open-tierlist');
-    const closeBtn = document.getElementById('tierlist-close');
-    const resetBtn = document.getElementById('tierlist-reset');
-    if (openBtn)  openBtn.addEventListener('click', openTierList);
-    if (closeBtn) closeBtn.addEventListener('click', closeTierList);
-    if (resetBtn) resetBtn.addEventListener('click', () => {
+    const openBtn   = document.getElementById('open-tierlist');
+    const closeBtn  = document.getElementById('tierlist-close');
+    const resetBtn  = document.getElementById('tierlist-reset');
+    const exportBtn = document.getElementById('tierlist-export');
+    if (openBtn)   openBtn.addEventListener('click', openTierList);
+    if (closeBtn)  closeBtn.addEventListener('click', closeTierList);
+    if (resetBtn)  resetBtn.addEventListener('click', () => {
       tierData = { S: [], A: [], B: [], C: [], D: [] };
       saveData(); renderTierList();
     });
+    if (exportBtn) exportBtn.addEventListener('click', exportTierListPNG);
   });
 
   document.addEventListener('keydown', e => {

@@ -1,0 +1,1994 @@
+[
+  {
+    "id": 1,
+    "name": "Mikasa Ackerman",
+    "series": "Attack on Titan",
+    "img": "src/img/waifu/1.webp"
+  },
+  {
+    "id": 2,
+    "name": "Hinata Hyuga",
+    "series": "Naruto",
+    "img": "src/img/waifu/2.webp"
+  },
+  {
+    "id": 3,
+    "name": "Tsunade",
+    "series": "Naruto",
+    "img": "src/img/waifu/3.webp"
+  },
+  {
+    "id": 4,
+    "name": "Orihime Inoue",
+    "series": "Bleach",
+    "img": "src/img/waifu/4.webp"
+  },
+  {
+    "id": 5,
+    "name": "Yoruichi Shihouin",
+    "series": "Bleach",
+    "img": "src/img/waifu/5.webp"
+  },
+  {
+    "id": 6,
+    "name": "Tier Harribel",
+    "series": "Bleach",
+    "img": "src/img/waifu/6.webp"
+  },
+  {
+    "id": 7,
+    "name": "Nelliel Tu Odelschwanck",
+    "series": "Bleach",
+    "img": "src/img/waifu/7.webp"
+  },
+  {
+    "id": 8,
+    "name": "Nico Robin",
+    "series": "One Piece",
+    "img": "src/img/waifu/8.webp"
+  },
+  {
+    "id": 9,
+    "name": "Nami",
+    "series": "One Piece",
+    "img": "src/img/waifu/9.webp"
+  },
+  {
+    "id": 10,
+    "name": "Boa Hancock",
+    "series": "One Piece",
+    "img": "src/img/waifu/10.webp"
+  },
+  {
+    "id": 11,
+    "name": "Makima",
+    "series": "Chainsaw Man",
+    "img": "src/img/waifu/11.webp"
+  },
+  {
+    "id": 12,
+    "name": "Power",
+    "series": "Chainsaw Man",
+    "img": "src/img/waifu/12.webp"
+  },
+  {
+    "id": 13,
+    "name": "Tatsumaki",
+    "series": "One Punch Man",
+    "img": "src/img/waifu/13.webp"
+  },
+  {
+    "id": 14,
+    "name": "Fubuki",
+    "series": "One Punch Man",
+    "img": "src/img/waifu/14.webp"
+  },
+  {
+    "id": 15,
+    "name": "Mai Sakurajima",
+    "series": "Bunny Girl Senpai",
+    "img": "src/img/waifu/15.webp"
+  },
+  {
+    "id": 16,
+    "name": "Tomori Nao",
+    "series": "Charlotte",
+    "img": "src/img/waifu/16.webp"
+  },
+  {
+    "id": 17,
+    "name": "Emilia",
+    "series": "Re:Zero",
+    "img": "src/img/waifu/17.webp"
+  },
+  {
+    "id": 18,
+    "name": "Rem",
+    "series": "Re:Zero",
+    "img": "src/img/waifu/18.webp"
+  },
+  {
+    "id": 19,
+    "name": "Ram",
+    "series": "Re:Zero",
+    "img": "src/img/waifu/19.webp"
+  },
+  {
+    "id": 20,
+    "name": "Kurumi Tokisaki",
+    "series": "Date A Live",
+    "img": "src/img/waifu/20.webp"
+  },
+  {
+    "id": 21,
+    "name": "Tohka Yatogami",
+    "series": "Date A Live",
+    "img": "src/img/waifu/21.webp"
+  },
+  {
+    "id": 22,
+    "name": "Origami Tobiichi",
+    "series": "Date A Live",
+    "img": "src/img/waifu/22.webp"
+  },
+  {
+    "id": 23,
+    "name": "Nia Honjo",
+    "series": "Date A Live",
+    "img": "src/img/waifu/23.webp"
+  },
+  {
+    "id": 24,
+    "name": "Kotori Itsuka",
+    "series": "Date A Live",
+    "img": "src/img/waifu/24.webp"
+  },
+  {
+    "id": 25,
+    "name": "Mukuro Hoshimiya",
+    "series": "Date A Live",
+    "img": "src/img/waifu/25.webp"
+  },
+  {
+    "id": 26,
+    "name": "Natsumi Kyouno",
+    "series": "Date A Live",
+    "img": "src/img/waifu/26.webp"
+  },
+  {
+    "id": 27,
+    "name": "Miku Izayoi",
+    "series": "Date A Live",
+    "img": "src/img/waifu/27.webp"
+  },
+  {
+    "id": 28,
+    "name": "Yamai Sisters",
+    "series": "Date A Live",
+    "img": "src/img/waifu/28.webp"
+  },
+  {
+    "id": 29,
+    "name": "Rinne Sonogami",
+    "series": "Date A Live",
+    "img": "src/img/waifu/29.webp"
+  },
+  {
+    "id": 30,
+    "name": "Chizuru Mizuhara",
+    "series": "Rent-a-Girlfriend",
+    "img": "src/img/waifu/30.webp"
+  },
+  {
+    "id": 31,
+    "name": "Marin Kitagawa",
+    "series": "Sono Bisque Doll",
+    "img": "src/img/waifu/31.webp"
+  },
+  {
+    "id": 32,
+    "name": "Kaguya Shinomiya",
+    "series": "Kaguya-sama",
+    "img": "src/img/waifu/32.webp"
+  },
+  {
+    "id": 33,
+    "name": "Ai Hayasaka",
+    "series": "Kaguya-sama",
+    "img": "src/img/waifu/33.webp"
+  },
+  {
+    "id": 34,
+    "name": "Zero Two",
+    "series": "Darling in the FranXX",
+    "img": "src/img/waifu/34.webp"
+  },
+  {
+    "id": 35,
+    "name": "Kurisu Makise",
+    "series": "Steins;Gate",
+    "img": "src/img/waifu/35.webp"
+  },
+  {
+    "id": 36,
+    "name": "Faris NyanNyan",
+    "series": "Steins;Gate",
+    "img": "src/img/waifu/36.webp"
+  },
+  {
+    "id": 37,
+    "name": "Albedo",
+    "series": "Overlord",
+    "img": "src/img/waifu/37.webp"
+  },
+  {
+    "id": 38,
+    "name": "Shalltear Bloodfallen",
+    "series": "Overlord",
+    "img": "src/img/waifu/38.webp"
+  },
+  {
+    "id": 39,
+    "name": "Hestia",
+    "series": "Danmachi",
+    "img": "src/img/waifu/39.webp"
+  },
+  {
+    "id": 40,
+    "name": "Ais Wallenstein",
+    "series": "Danmachi",
+    "img": "src/img/waifu/40.webp"
+  },
+  {
+    "id": 41,
+    "name": "Ryuu Lion",
+    "series": "Danmachi",
+    "img": "src/img/waifu/41.webp"
+  },
+  {
+    "id": 42,
+    "name": "Raphtalia",
+    "series": "Shield Hero",
+    "img": "src/img/waifu/42.webp"
+  },
+  {
+    "id": 43,
+    "name": "Aqua",
+    "series": "Konosuba",
+    "img": "src/img/waifu/43.webp"
+  },
+  {
+    "id": 44,
+    "name": "Megumin",
+    "series": "Konosuba",
+    "img": "src/img/waifu/44.webp"
+  },
+  {
+    "id": 45,
+    "name": "Darkness",
+    "series": "Konosuba",
+    "img": "src/img/waifu/45.webp"
+  },
+  {
+    "id": 46,
+    "name": "Eris Boreas Greyrat",
+    "series": "Mushoku Tensei",
+    "img": "src/img/waifu/46.webp"
+  },
+  {
+    "id": 47,
+    "name": "Sylphiette",
+    "series": "Mushoku Tensei",
+    "img": "src/img/waifu/47.webp"
+  },
+  {
+    "id": 48,
+    "name": "Roxy Migurdia",
+    "series": "Mushoku Tensei",
+    "img": "src/img/waifu/48.webp"
+  },
+  {
+    "id": 49,
+    "name": "Tio Klarus",
+    "series": "Arifureta",
+    "img": "src/img/waifu/49.webp"
+  },
+  {
+    "id": 50,
+    "name": "Shea Haulia",
+    "series": "Arifureta",
+    "img": "src/img/waifu/50.webp"
+  },
+  {
+    "id": 51,
+    "name": "Yue",
+    "series": "Arifureta",
+    "img": "src/img/waifu/51.webp"
+  },
+  {
+    "id": 52,
+    "name": "Shirasaki Kaori",
+    "series": "Arifureta",
+    "img": "src/img/waifu/52.webp"
+  },
+  {
+    "id": 53,
+    "name": "Asuka Langley",
+    "series": "Evangelion",
+    "img": "src/img/waifu/53.webp"
+  },
+  {
+    "id": 54,
+    "name": "Rei Ayanami",
+    "series": "Evangelion",
+    "img": "src/img/waifu/54.webp"
+  },
+  {
+    "id": 55,
+    "name": "Mari Makinami",
+    "series": "Evangelion",
+    "img": "src/img/waifu/55.webp"
+  },
+  {
+    "id": 56,
+    "name": "Motoko Kusanagi",
+    "series": "Ghost in the Shell",
+    "img": "src/img/waifu/56.webp"
+  },
+  {
+    "id": 57,
+    "name": "Yoko Littner",
+    "series": "Gurren Lagann",
+    "img": "src/img/waifu/57.webp"
+  },
+  {
+    "id": 58,
+    "name": "Mikoto Misaka",
+    "series": "Railgun",
+    "img": "src/img/waifu/58.webp"
+  },
+  {
+    "id": 59,
+    "name": "Misaki Shokuhou",
+    "series": "Railgun",
+    "img": "src/img/waifu/59.webp"
+  },
+  {
+    "id": 60,
+    "name": "Yui Hirasawa",
+    "series": "K-On!",
+    "img": "src/img/waifu/60.webp"
+  },
+  {
+    "id": 61,
+    "name": "Mio Akiyama",
+    "series": "K-On!",
+    "img": "src/img/waifu/61.webp"
+  },
+  {
+    "id": 62,
+    "name": "Azusa Nakano",
+    "series": "K-On!",
+    "img": "src/img/waifu/62.webp"
+  },
+  {
+    "id": 63,
+    "name": "Tsumugi Kotobuki",
+    "series": "K-On!",
+    "img": "src/img/waifu/63.webp"
+  },
+  {
+    "id": 64,
+    "name": "Ritsu Tainaka",
+    "series": "K-On!",
+    "img": "src/img/waifu/64.webp"
+  },
+  {
+    "id": 65,
+    "name": "Nagatoro Hayase",
+    "series": "Nagatoro-san",
+    "img": "src/img/waifu/65.webp"
+  },
+  {
+    "id": 66,
+    "name": "Komi Shouko",
+    "series": "Komi-san",
+    "img": "src/img/waifu/66.webp"
+  },
+  {
+    "id": 67,
+    "name": "Yamada Anna",
+    "series": "Yamada-kun",
+    "img": "src/img/waifu/67.webp"
+  },
+  {
+    "id": 68,
+    "name": "Yumeko Jabami",
+    "series": "Kakegurui",
+    "img": "src/img/waifu/68.webp"
+  },
+  {
+    "id": 69,
+    "name": "Mary Saotome",
+    "series": "Kakegurui",
+    "img": "src/img/waifu/69.webp"
+  },
+  {
+    "id": 70,
+    "name": "Sachiko Juraku",
+    "series": "Kakegurui",
+    "img": "src/img/waifu/70.webp"
+  },
+  {
+    "id": 71,
+    "name": "Gasai Yuno",
+    "series": "Mirai Nikki",
+    "img": "src/img/waifu/71.webp"
+  },
+  {
+    "id": 72,
+    "name": "Ai Enma",
+    "series": "Hell Girl",
+    "img": "src/img/waifu/72.webp"
+  },
+  {
+    "id": 73,
+    "name": "Aoba Suzukaze",
+    "series": "New Game!",
+    "img": "src/img/waifu/73.webp"
+  },
+  {
+    "id": 74,
+    "name": "Aoba Kou",
+    "series": "New Game!",
+    "img": "src/img/waifu/74.webp"
+  },
+  {
+    "id": 75,
+    "name": "Aki Adagaki",
+    "series": "Masamune-kun no Revenge",
+    "img": "src/img/waifu/75.webp"
+  },
+  {
+    "id": 76,
+    "name": "Yuzuki Eba",
+    "series": "Kimi no Iru Machi",
+    "img": "src/img/waifu/76.webp"
+  },
+  {
+    "id": 77,
+    "name": "Violet Evergarden",
+    "series": "Violet Evergarden",
+    "img": "src/img/waifu/77.webp"
+  },
+  {
+    "id": 78,
+    "name": "Cattleya Baudelaire",
+    "series": "Violet Evergarden",
+    "img": "src/img/waifu/78.webp"
+  },
+  {
+    "id": 79,
+    "name": "Tohru",
+    "series": "Dragon Maid",
+    "img": "src/img/waifu/79.webp"
+  },
+  {
+    "id": 80,
+    "name": "Lucoa",
+    "series": "Dragon Maid",
+    "img": "src/img/waifu/80.webp"
+  },
+  {
+    "id": 81,
+    "name": "Elma",
+    "series": "Dragon Maid",
+    "img": "src/img/waifu/81.webp"
+  },
+  {
+    "id": 82,
+    "name": "Rikka Takarada",
+    "series": "SSSS.Gridman",
+    "img": "src/img/waifu/82.webp"
+  },
+  {
+    "id": 83,
+    "name": "Akane Shinjo",
+    "series": "SSSS.Gridman",
+    "img": "src/img/waifu/83.webp"
+  },
+  {
+    "id": 84,
+    "name": "Lu Lulucy",
+    "series": "Isekai Nonbiri Nouka",
+    "img": "src/img/waifu/84.webp"
+  },
+  {
+    "id": 85,
+    "name": "Maki Oze",
+    "series": "Fire Force",
+    "img": "src/img/waifu/85.webp"
+  },
+  {
+    "id": 86,
+    "name": "Tamaki Kotatsu",
+    "series": "Fire Force",
+    "img": "src/img/waifu/86.webp"
+  },
+  {
+    "id": 87,
+    "name": "Iris",
+    "series": "Fire Force",
+    "img": "src/img/waifu/87.webp"
+  },
+  {
+    "id": 88,
+    "name": "Princess Hibana",
+    "series": "Fire Force",
+    "img": "src/img/waifu/88.webp"
+  },
+  {
+    "id": 89,
+    "name": "Tsukasa Tsukuyomi",
+    "series": "Tonikaku Kawaii",
+    "img": "src/img/waifu/89.webp"
+  },
+  {
+    "id": 90,
+    "name": "Kana Arima",
+    "series": "Oshi no Ko",
+    "img": "src/img/waifu/90.webp"
+  },
+  {
+    "id": 91,
+    "name": "Akane Kurokawa",
+    "series": "Oshi no Ko",
+    "img": "src/img/waifu/91.webp"
+  },
+  {
+    "id": 92,
+    "name": "Ruby Hoshino",
+    "series": "Oshi no Ko",
+    "img": "src/img/waifu/92.webp"
+  },
+  {
+    "id": 93,
+    "name": "Ai Hoshino",
+    "series": "Oshi no Ko",
+    "img": "src/img/waifu/93.webp"
+  },
+  {
+    "id": 94,
+    "name": "Alice Zuberg",
+    "series": "Sword Art Online",
+    "img": "src/img/waifu/94.webp"
+  },
+  {
+    "id": 95,
+    "name": "Asuna Yuuki",
+    "series": "Sword Art Online",
+    "img": "src/img/waifu/95.webp"
+  },
+  {
+    "id": 96,
+    "name": "Sinon",
+    "series": "Sword Art Online",
+    "img": "src/img/waifu/96.webp"
+  },
+  {
+    "id": 97,
+    "name": "Leafa",
+    "series": "Sword Art Online",
+    "img": "src/img/waifu/97.webp"
+  },
+  {
+    "id": 98,
+    "name": "Yuuki Konno",
+    "series": "Sword Art Online",
+    "img": "src/img/waifu/98.webp"
+  },
+  {
+    "id": 99,
+    "name": "Rikka Takanashi",
+    "series": "Chuunibyou",
+    "img": "src/img/waifu/99.webp"
+  },
+  {
+    "id": 100,
+    "name": "Satone Shichimiya",
+    "series": "Suki na Ko ga Megane wo Wasureta",
+    "img": "src/img/waifu/100.webp"
+  },
+  {
+    "id": 101,
+    "name": "Sena Kashiwazaki",
+    "series": "Haganai",
+    "img": "src/img/waifu/101.webp"
+  },
+  {
+    "id": 102,
+    "name": "Yozora Mikazuki",
+    "series": "Haganai",
+    "img": "src/img/waifu/102.webp"
+  },
+  {
+    "id": 103,
+    "name": "Shinobu Oshino",
+    "series": "Monogatari",
+    "img": "src/img/waifu/103.webp"
+  },
+  {
+    "id": 104,
+    "name": "Hitagi Senjougahara",
+    "series": "Monogatari",
+    "img": "src/img/waifu/104.webp"
+  },
+  {
+    "id": 105,
+    "name": "Tsubasa Hanekawa",
+    "series": "Monogatari",
+    "img": "src/img/waifu/105.webp"
+  },
+  {
+    "id": 106,
+    "name": "Karen Araragi",
+    "series": "Monogatari",
+    "img": "src/img/waifu/106.webp"
+  },
+  {
+    "id": 107,
+    "name": "Tsukihi Araragi",
+    "series": "Monogatari",
+    "img": "src/img/waifu/107.webp"
+  },
+  {
+    "id": 108,
+    "name": "Yotsugi Ononoki",
+    "series": "Monogatari",
+    "img": "src/img/waifu/108.webp"
+  },
+  {
+    "id": 109,
+    "name": "Hoshino",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/109.webp"
+  },
+  {
+    "id": 110,
+    "name": "Arona",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/110.webp"
+  },
+  {
+    "id": 111,
+    "name": "Shiroko",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/111.webp"
+  },
+  {
+    "id": 112,
+    "name": "Toki",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/112.webp"
+  },
+  {
+    "id": 113,
+    "name": "Wakamo",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/113.webp"
+  },
+  {
+    "id": 114,
+    "name": "Yuka",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/114.webp"
+  },
+  {
+    "id": 115,
+    "name": "Koharu",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/115.webp"
+  },
+  {
+    "id": 116,
+    "name": "Mika",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/116.webp"
+  },
+  {
+    "id": 117,
+    "name": "Azusa",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/117.webp"
+  },
+  {
+    "id": 118,
+    "name": "Karin",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/118.webp"
+  },
+  {
+    "id": 119,
+    "name": "2B",
+    "series": "Nier Automata",
+    "img": "src/img/waifu/119.webp"
+  },
+  {
+    "id": 120,
+    "name": "A2",
+    "series": "Nier Automata",
+    "img": "src/img/waifu/120.webp"
+  },
+  {
+    "id": 121,
+    "name": "Eve",
+    "series": "Stellar Blade",
+    "img": "src/img/waifu/121.webp"
+  },
+  {
+    "id": 122,
+    "name": "Zero",
+    "series": "Drakengard 3",
+    "img": "src/img/waifu/122.webp"
+  },
+  {
+    "id": 123,
+    "name": "Sophie Neuenmuller",
+    "series": "Atelier Sophie",
+    "img": "src/img/waifu/123.webp"
+  },
+  {
+    "id": 124,
+    "name": "Ryza Stout",
+    "series": "Atelier Ryza",
+    "img": "src/img/waifu/124.webp"
+  },
+  {
+    "id": 125,
+    "name": "Velvet Crowe",
+    "series": "Tales of Berseria",
+    "img": "src/img/waifu/125.webp"
+  },
+  {
+    "id": 126,
+    "name": "Eleanor Hume",
+    "series": "Tales of Berseria",
+    "img": "src/img/waifu/126.webp"
+  },
+  {
+    "id": 127,
+    "name": "Shionne",
+    "series": "Tales of Arise",
+    "img": "src/img/waifu/127.webp"
+  },
+  {
+    "id": 128,
+    "name": "Raiden Shogun",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/128.webp"
+  },
+  {
+    "id": 129,
+    "name": "Yae Miko",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/129.webp"
+  },
+  {
+    "id": 130,
+    "name": "Ganyu",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/130.webp"
+  },
+  {
+    "id": 131,
+    "name": "Hu Tao",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/131.webp"
+  },
+  {
+    "id": 132,
+    "name": "Keqing",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/132.webp"
+  },
+  {
+    "id": 133,
+    "name": "Ningguang",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/133.webp"
+  },
+  {
+    "id": 134,
+    "name": "Shenhe",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/134.webp"
+  },
+  {
+    "id": 135,
+    "name": "Rosaria",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/135.webp"
+  },
+  {
+    "id": 136,
+    "name": "Eula",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/136.webp"
+  },
+  {
+    "id": 137,
+    "name": "Ayaka",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/137.webp"
+  },
+  {
+    "id": 138,
+    "name": "Yoimiya",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/138.webp"
+  },
+  {
+    "id": 139,
+    "name": "Kokomi",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/139.webp"
+  },
+  {
+    "id": 140,
+    "name": "Yelan",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/140.webp"
+  },
+  {
+    "id": 141,
+    "name": "Beidou",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/141.webp"
+  },
+  {
+    "id": 142,
+    "name": "Fischl",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/142.webp"
+  },
+  {
+    "id": 143,
+    "name": "Lisa",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/143.webp"
+  },
+  {
+    "id": 144,
+    "name": "Jean",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/144.webp"
+  },
+  {
+    "id": 145,
+    "name": "Amber",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/145.webp"
+  },
+  {
+    "id": 146,
+    "name": "Xiangling",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/146.webp"
+  },
+  {
+    "id": 147,
+    "name": "Faruzan",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/147.webp"
+  },
+  {
+    "id": 148,
+    "name": "Navia",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/148.webp"
+  },
+  {
+    "id": 149,
+    "name": "Clorinde",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/149.webp"
+  },
+  {
+    "id": 150,
+    "name": "Arlecchino",
+    "series": "Genshin Impact",
+    "img": "src/img/waifu/150.webp"
+  },
+  {
+    "id": 151,
+    "name": "Kafka",
+    "series": "Honkai Star Rail",
+    "img": "src/img/waifu/151.webp"
+  },
+  {
+    "id": 152,
+    "name": "Silver Wolf",
+    "series": "Honkai Star Rail",
+    "img": "src/img/waifu/152.webp"
+  },
+  {
+    "id": 153,
+    "name": "Jingliu",
+    "series": "Honkai Star Rail",
+    "img": "src/img/waifu/153.webp"
+  },
+  {
+    "id": 154,
+    "name": "Himeko",
+    "series": "Honkai Star Rail",
+    "img": "src/img/waifu/154.webp"
+  },
+  {
+    "id": 155,
+    "name": "Seele",
+    "series": "Honkai Star Rail",
+    "img": "src/img/waifu/155.webp"
+  },
+  {
+    "id": 156,
+    "name": "Bronya",
+    "series": "Honkai Star Rail",
+    "img": "src/img/waifu/156.webp"
+  },
+  {
+    "id": 157,
+    "name": "Sparkle",
+    "series": "Honkai Star Rail",
+    "img": "src/img/waifu/157.webp"
+  },
+  {
+    "id": 158,
+    "name": "Cyrene",
+    "series": "Honkai Star Rail",
+    "img": "src/img/waifu/158.webp"
+  },
+  {
+    "id": 159,
+    "name": "Black Swan",
+    "series": "Honkai Star Rail",
+    "img": "src/img/waifu/159.webp"
+  },
+  {
+    "id": 160,
+    "name": "Topaz",
+    "series": "Honkai Star Rail",
+    "img": "src/img/waifu/160.webp"
+  },
+  {
+    "id": 161,
+    "name": "Acheron",
+    "series": "Honkai Star Rail",
+    "img": "src/img/waifu/161.webp"
+  },
+  {
+    "id": 162,
+    "name": "Huohuo",
+    "series": "Honkai Star Rail",
+    "img": "src/img/waifu/162.webp"
+  },
+  {
+    "id": 163,
+    "name": "Robin",
+    "series": "Honkai Star Rail",
+    "img": "src/img/waifu/163.webp"
+  },
+  {
+    "id": 164,
+    "name": "Kiana",
+    "series": "Honkai Impact 3rd",
+    "img": "src/img/waifu/164.webp"
+  },
+  {
+    "id": 165,
+    "name": "Mei",
+    "series": "Honkai Impact 3rd",
+    "img": "src/img/waifu/165.webp"
+  },
+  {
+    "id": 166,
+    "name": "Bronya (HI3)",
+    "series": "Honkai Impact 3rd",
+    "img": "src/img/waifu/166.webp"
+  },
+  {
+    "id": 167,
+    "name": "Elysia",
+    "series": "Honkai Impact 3rd",
+    "img": "src/img/waifu/167.webp"
+  },
+  {
+    "id": 168,
+    "name": "Mobius",
+    "series": "Honkai Impact 3rd",
+    "img": "src/img/waifu/168.webp"
+  },
+  {
+    "id": 169,
+    "name": "Durandal",
+    "series": "Honkai Impact 3rd",
+    "img": "src/img/waifu/169.webp"
+  },
+  {
+    "id": 170,
+    "name": "Rita Rossweisse",
+    "series": "Honkai Impact 3rd",
+    "img": "src/img/waifu/170.webp"
+  },
+  {
+    "id": 171,
+    "name": "Rozaliya",
+    "series": "Honkai Impact 3rd",
+    "img": "src/img/waifu/171.webp"
+  },
+  {
+    "id": 172,
+    "name": "Liliya",
+    "series": "Honkai Impact 3rd",
+    "img": "src/img/waifu/172.webp"
+  },
+  {
+    "id": 173,
+    "name": "Jinhsi",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/173.webp"
+  },
+  {
+    "id": 174,
+    "name": "Yinlin",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/174.webp"
+  },
+  {
+    "id": 175,
+    "name": "Mornye",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/175.webp"
+  },
+  {
+    "id": 176,
+    "name": "Sanhua",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/176.webp"
+  },
+  {
+    "id": 177,
+    "name": "Verina",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/177.webp"
+  },
+  {
+    "id": 178,
+    "name": "Jianxin",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/178.webp"
+  },
+  {
+    "id": 179,
+    "name": "Chixia",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/179.webp"
+  },
+  {
+    "id": 180,
+    "name": "Baizhi",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/180.webp"
+  },
+  {
+    "id": 181,
+    "name": "Augusta",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/181.webp"
+  },
+  {
+    "id": 182,
+    "name": "Camellya",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/182.webp"
+  },
+  {
+    "id": 183,
+    "name": "Cantarella",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/183.webp"
+  },
+  {
+    "id": 184,
+    "name": "Carlotta",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/184.webp"
+  },
+  {
+    "id": 185,
+    "name": "Cartethyia",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/185.webp"
+  },
+  {
+    "id": 186,
+    "name": "Changli",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/186.webp"
+  },
+  {
+    "id": 187,
+    "name": "Chisa",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/187.webp"
+  },
+  {
+    "id": 188,
+    "name": "Ciaccona",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/188.webp"
+  },
+  {
+    "id": 189,
+    "name": "Galbrena",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/189.webp"
+  },
+  {
+    "id": 190,
+    "name": "Iuno",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/190.webp"
+  },
+  {
+    "id": 191,
+    "name": "Lupa",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/191.webp"
+  },
+  {
+    "id": 192,
+    "name": "Phrolova",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/192.webp"
+  },
+  {
+    "id": 193,
+    "name": "Roccia",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/193.webp"
+  },
+  {
+    "id": 194,
+    "name": "F Rover",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/194.webp"
+  },
+  {
+    "id": 195,
+    "name": "Shorekeeper",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/195.webp"
+  },
+  {
+    "id": 196,
+    "name": "Zani",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/196.webp"
+  },
+  {
+    "id": 197,
+    "name": "Zhezhi",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/197.webp"
+  },
+  {
+    "id": 198,
+    "name": "Lumi",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/198.webp"
+  },
+  {
+    "id": 199,
+    "name": "Taoqi",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/199.webp"
+  },
+  {
+    "id": 200,
+    "name": "Lucilla",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/200.webp"
+  },
+  {
+    "id": 201,
+    "name": "Sigrika",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/201.webp"
+  },
+  {
+    "id": 202,
+    "name": "Lynae",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/202.webp"
+  },
+  {
+    "id": 203,
+    "name": "Maomao",
+    "series": "Kusuriya no Hitorigoto",
+    "img": "src/img/waifu/203.webp"
+  },
+  {
+    "id": 204,
+    "name": "Eucliwood Hellscythe",
+    "series": "Kore wa Zombie Desu ka?",
+    "img": "src/img/waifu/204.webp"
+  },
+  {
+    "id": 205,
+    "name": "Shiro",
+    "series": "No Game No Life",
+    "img": "src/img/waifu/205.webp"
+  },
+  {
+    "id": 206,
+    "name": "Yaya",
+    "series": "Machine-Doll wa Kizutsukanai",
+    "img": "src/img/waifu/206.webp"
+  },
+  {
+    "id": 207,
+    "name": "Irori",
+    "series": "Machine-Doll wa Kizutsukanai",
+    "img": "src/img/waifu/207.webp"
+  },
+  {
+    "id": 208,
+    "name": "Honoka Kousaka",
+    "series": "Love Live!",
+    "img": "src/img/waifu/208.webp"
+  },
+  {
+    "id": 209,
+    "name": "Mikoto Kujou",
+    "series": "Last Game",
+    "img": "src/img/waifu/209.webp"
+  },
+  {
+    "id": 210,
+    "name": "Saber",
+    "series": "Fate/stay night",
+    "img": "src/img/waifu/210.webp"
+  },
+  {
+    "id": 211,
+    "name": "Aisaka Taiga",
+    "series": "Toradora!",
+    "img": "src/img/waifu/211.webp"
+  },
+  {
+    "id": 212,
+    "name": "Frieren",
+    "series": "Sousou no Frieren",
+    "img": "src/img/waifu/212.webp"
+  },
+  {
+    "id": 213,
+    "name": "Fern",
+    "series": "Sousou no Frieren",
+    "img": "src/img/waifu/213.webp"
+  },
+  {
+    "id": 214,
+    "name": "Miyazono Kaori",
+    "series": "Shigatsu wa Kimi no Uso",
+    "img": "src/img/waifu/214.webp"
+  },
+  {
+    "id": 215,
+    "name": "Tohsaka Rin",
+    "series": "Fate/stay night",
+    "img": "src/img/waifu/215.webp"
+  },
+  {
+    "id": 216,
+    "name": "Yukinoshita Yukino",
+    "series": "Oregairu",
+    "img": "src/img/waifu/216.webp"
+  },
+  {
+    "id": 217,
+    "name": "Yuigahama Yui",
+    "series": "Oregairu",
+    "img": "src/img/waifu/217.webp"
+  },
+  {
+    "id": 218,
+    "name": "Kawasaki Saki",
+    "series": "Oregairu",
+    "img": "src/img/waifu/218.webp"
+  },
+  {
+    "id": 219,
+    "name": "Hiratsuka Shizuka",
+    "series": "Oregairu",
+    "img": "src/img/waifu/219.webp"
+  },
+  {
+    "id": 220,
+    "name": "Nakano Ichika",
+    "series": "5-toubun no Hanayome",
+    "img": "src/img/waifu/220.webp"
+  },
+  {
+    "id": 221,
+    "name": "Nakano Nino",
+    "series": "5-toubun no Hanayome",
+    "img": "src/img/waifu/221.webp"
+  },
+  {
+    "id": 222,
+    "name": "Nakano Miku",
+    "series": "5-toubun no Hanayome",
+    "img": "src/img/waifu/222.webp"
+  },
+  {
+    "id": 223,
+    "name": "Nakano Yotsuba",
+    "series": "5-toubun no Hanayome",
+    "img": "src/img/waifu/223.webp"
+  },
+  {
+    "id": 224,
+    "name": "Nakano Itsuki",
+    "series": "5-toubun no Hanayome",
+    "img": "src/img/waifu/224.webp"
+  },
+  {
+    "id": 225,
+    "name": "Rias Gremory",
+    "series": "High School DxD",
+    "img": "src/img/waifu/225.webp"
+  },
+  {
+    "id": 226,
+    "name": "Himejima Akeno",
+    "series": "High School DxD",
+    "img": "src/img/waifu/226.webp"
+  },
+  {
+    "id": 227,
+    "name": "Asia Argento",
+    "series": "High School DxD",
+    "img": "src/img/waifu/227.webp"
+  },
+  {
+    "id": 228,
+    "name": "Erza Scarlet",
+    "series": "Fairy Tail",
+    "img": "src/img/waifu/228.webp"
+  },
+  {
+    "id": 229,
+    "name": "Gotou Hitori",
+    "series": "Bocchi the Rock!",
+    "img": "src/img/waifu/229.webp"
+  },
+  {
+    "id": 230,
+    "name": "Nishimiya Shouko",
+    "series": "Koe no Katachi",
+    "img": "src/img/waifu/230.webp"
+  },
+  {
+    "id": 231,
+    "name": "Shiina Mashiro",
+    "series": "Sakura-sou no Pet na Kanojo",
+    "img": "src/img/waifu/231.webp"
+  },
+  {
+    "id": 232,
+    "name": "Suzumiya Haruhi",
+    "series": "Suzumiya Haruhi no Yuuutsu",
+    "img": "src/img/waifu/232.webp"
+  },
+  {
+    "id": 233,
+    "name": "Tachibana Kanade",
+    "series": "Angel Beats!",
+    "img": "src/img/waifu/233.webp"
+  },
+  {
+    "id": 234,
+    "name": "Vladilena Milizé",
+    "series": "Eighty Six",
+    "img": "src/img/waifu/234.webp"
+  },
+  {
+    "id": 235,
+    "name": "Hori Kyouko",
+    "series": "Horimiya",
+    "img": "src/img/waifu/235.webp"
+  },
+  {
+    "id": 236,
+    "name": "Akame",
+    "series": "Akame ga Kill!",
+    "img": "src/img/waifu/236.webp"
+  },
+  {
+    "id": 237,
+    "name": "Esdeath",
+    "series": "Akame ga Kill!",
+    "img": "src/img/waifu/237.webp"
+  },
+  {
+    "id": 238,
+    "name": "Yor Forger",
+    "series": "Spy x Family",
+    "img": "src/img/waifu/238.webp"
+  },
+  {
+    "id": 239,
+    "name": "Kirisaki Chitoge",
+    "series": "Nisekoi",
+    "img": "src/img/waifu/239.webp"
+  },
+  {
+    "id": 240,
+    "name": "Katou Megumi",
+    "series": "Saenai Heroine no Sodatekata",
+    "img": "src/img/waifu/240.webp"
+  },
+  {
+    "id": 241,
+    "name": "Inori Yuzuriha",
+    "series": "Guilty Crown",
+    "img": "src/img/waifu/241.webp"
+  },
+  {
+    "id": 242,
+    "name": "Chitanda Eru",
+    "series": "Hyouka",
+    "img": "src/img/waifu/242.webp"
+  },
+  {
+    "id": 243,
+    "name": "Nishikigi Chisato",
+    "series": "Lycoris Recoil",
+    "img": "src/img/waifu/243.webp"
+  },
+  {
+    "id": 244,
+    "name": "Lucy",
+    "series": "Cyberpunk: Edgerunners",
+    "img": "src/img/waifu/244.webp"
+  },
+  {
+    "id": 245,
+    "name": "Miyamizu Mitsuha",
+    "series": "Kimi no Na wa",
+    "img": "src/img/waifu/245.webp"
+  },
+  {
+    "id": 246,
+    "name": "Misa Amane",
+    "series": "Death Note",
+    "img": "src/img/waifu/246.webp"
+  },
+  {
+    "id": 247,
+    "name": "Shana",
+    "series": "Shakugan no Shana",
+    "img": "src/img/waifu/247.webp"
+  },
+  {
+    "id": 248,
+    "name": "Gokou Ruri",
+    "series": "Oreimo",
+    "img": "src/img/waifu/248.webp"
+  },
+  {
+    "id": 249,
+    "name": "Elaina",
+    "series": "Majo no Tabitabi",
+    "img": "src/img/waifu/249.webp"
+  },
+  {
+    "id": 250,
+    "name": "Takagi-san",
+    "series": "Karakai Jouzu no Takagi-san",
+    "img": "src/img/waifu/250.webp"
+  },
+  {
+    "id": 251,
+    "name": "Momo Belia Deviluke",
+    "series": "To LOVE-Ru",
+    "img": "src/img/waifu/251.webp"
+  },
+  {
+    "id": 252,
+    "name": "Konjiki no Yami",
+    "series": "To LOVE-Ru",
+    "img": "src/img/waifu/252.webp"
+  },
+  {
+    "id": 253,
+    "name": "Kotegawa Yui",
+    "series": "To LOVE-Ru",
+    "img": "src/img/waifu/253.webp"
+  },
+  {
+    "id": 254,
+    "name": "Lala Satalin Deviluke",
+    "series": "To LOVE-Ru",
+    "img": "src/img/waifu/254.webp"
+  },
+  {
+    "id": 255,
+    "name": "Busujima Saeko",
+    "series": "Highschool of the Dead",
+    "img": "src/img/waifu/255.webp"
+  },
+  {
+    "id": 256,
+    "name": "Nanakusa Nazuna",
+    "series": "Yofukashi no Uta",
+    "img": "src/img/waifu/256.webp"
+  },
+  {
+    "id": 257,
+    "name": "Tsukino Usagi",
+    "series": "Sailor Moon",
+    "img": "src/img/waifu/257.webp"
+  },
+  {
+    "id": 258,
+    "name": "Yuzaki Tsukasa",
+    "series": "Tonikaku Kawaii",
+    "img": "src/img/waifu/258.webp"
+  },
+  {
+    "id": 259,
+    "name": "Kirigiri Kyouko",
+    "series": "Danganronpa",
+    "img": "src/img/waifu/259.webp"
+  },
+  {
+    "id": 260,
+    "name": "Nakiri Erina",
+    "series": "Shokugeki no Souma",
+    "img": "src/img/waifu/260.webp"
+  },
+  {
+    "id": 261,
+    "name": "Rory Mercury",
+    "series": "Gate: Jieitai Kanochi nite",
+    "img": "src/img/waifu/261.webp"
+  },
+  {
+    "id": 262,
+    "name": "Morgiana",
+    "series": "Magi",
+    "img": "src/img/waifu/262.webp"
+  },
+  {
+    "id": 263,
+    "name": "Sengoku Nadeko",
+    "series": "Monogatari Series",
+    "img": "src/img/waifu/263.webp"
+  },
+  {
+    "id": 264,
+    "name": "Umaru Doma",
+    "series": "Himouto! Umaru-chan",
+    "img": "src/img/waifu/264.webp"
+  },
+  {
+    "id": 265,
+    "name": "Ayase Momo",
+    "series": "Dandadan",
+    "img": "src/img/waifu/265.webp"
+  },
+  {
+    "id": 266,
+    "name": "Toujou Koneko",
+    "series": "High School DxD",
+    "img": "src/img/waifu/266.webp"
+  },
+  {
+    "id": 267,
+    "name": "Matou Sakura",
+    "series": "Fate/stay night",
+    "img": "src/img/waifu/267.webp"
+  },
+  {
+    "id": 268,
+    "name": "Kasumigaoka Utaha",
+    "series": "Saekano",
+    "img": "src/img/waifu/268.webp"
+  },
+  {
+    "id": 269,
+    "name": "Shiina Mahiru",
+    "series": "Otonari no Tenshi-sama",
+    "img": "src/img/waifu/269.webp"
+  },
+  {
+    "id": 270,
+    "name": "Satanichia Kurumizawa McDowell",
+    "series": "Gabriel DropOut",
+    "img": "src/img/waifu/270.webp"
+  },
+  {
+    "id": 271,
+    "name": "Kuroyukihime",
+    "series": "Accel World",
+    "img": "src/img/waifu/271.webp"
+  },
+  {
+    "id": 272,
+    "name": "Akashiya Moka",
+    "series": "Rosario to Vampire",
+    "img": "src/img/waifu/272.webp"
+  },
+  {
+    "id": 273,
+    "name": "Alisa Mikhailovna Kujou",
+    "series": "Alya Sometimes Hides Her Feelings in Russian",
+    "img": "src/img/waifu/273.webp"
+  },
+  {
+    "id": 274,
+    "name": "Karuizawa Kei",
+    "series": "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e",
+    "img": "src/img/waifu/274.webp"
+  },
+  {
+    "id": 275,
+    "name": "Senko",
+    "series": "Sewayaki Kitsune no Senko-san",
+    "img": "src/img/waifu/275.webp"
+  },
+  {
+    "id": 276,
+    "name": "Shiba Miyuki",
+    "series": "Mahouka Koukou no Rettousei",
+    "img": "src/img/waifu/276.webp"
+  },
+  {
+    "id": 277,
+    "name": "Sento Isuzu",
+    "series": "Amagi Brilliant Park",
+    "img": "src/img/waifu/277.webp"
+  },
+  {
+    "id": 278,
+    "name": "Shiraishi Urara",
+    "series": "Yamada-kun to 7-nin no Majo",
+    "img": "src/img/waifu/278.webp"
+  },
+  {
+    "id": 279,
+    "name": "Arcueid Brunestud",
+    "series": "Tsukihime",
+    "img": "src/img/waifu/279.webp"
+  },
+  {
+    "id": 280,
+    "name": "Jeanne d'Arc",
+    "series": "Fate/Apocrypha",
+    "img": "src/img/waifu/280.webp"
+  },
+  {
+    "id": 281,
+    "name": "Cecilia Alcott",
+    "series": "IS: Infinite Stratos",
+    "img": "src/img/waifu/281.webp"
+  },
+  {
+    "id": 282,
+    "name": "Maruzensky",
+    "series": "Uma Musume",
+    "img": "src/img/waifu/282.webp"
+  },
+  {
+    "id": 283,
+    "name": "Oguri Cap",
+    "series": "Uma Musume",
+    "img": "src/img/waifu/283.webp"
+  },
+  {
+    "id": 284,
+    "name": "Gold Ship",
+    "series": "Uma Musume",
+    "img": "src/img/waifu/284.webp"
+  },
+  {
+    "id": 285,
+    "name": "Daiwa Scarlet",
+    "series": "Uma Musume",
+    "img": "src/img/waifu/285.webp"
+  },
+  {
+    "id": 286,
+    "name": "Mejiro McQueen",
+    "series": "Uma Musume",
+    "img": "src/img/waifu/286.webp"
+  },
+  {
+    "id": 287,
+    "name": "Agnes Tachyon",
+    "series": "Uma Musume",
+    "img": "src/img/waifu/287.webp"
+  },
+  {
+    "id": 288,
+    "name": "Super Creek",
+    "series": "Uma Musume",
+    "img": "src/img/waifu/288.webp"
+  },
+  {
+    "id": 289,
+    "name": "Dream Journey",
+    "series": "Uma Musume",
+    "img": "src/img/waifu/289.webp"
+  },
+  {
+    "id": 290,
+    "name": "Gentildonna",
+    "series": "Uma Musume",
+    "img": "src/img/waifu/290.webp"
+  },
+  {
+    "id": 291,
+    "name": "Mejiro Ramonu",
+    "series": "Uma Musume",
+    "img": "src/img/waifu/291.webp"
+  },
+  {
+    "id": 292,
+    "name": "Neo Universe",
+    "series": "Uma Musume",
+    "img": "src/img/waifu/292.webp"
+  },
+  {
+    "id": 293,
+    "name": "Orfevre",
+    "series": "Uma Musume",
+    "img": "src/img/waifu/293.webp"
+  },
+  {
+    "id": 294,
+    "name": "Still in Love",
+    "series": "Uma Musume",
+    "img": "src/img/waifu/294.webp"
+  },
+  {
+    "id": 295,
+    "name": "Murokasa Akane",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/295.webp"
+  },
+  {
+    "id": 296,
+    "name": "Tendō Arisu",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/296.webp"
+  },
+  {
+    "id": 297,
+    "name": "Rikuhachima Aru",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/297.webp"
+  },
+  {
+    "id": 298,
+    "name": "Ichinose Asuna",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/298.webp"
+  },
+  {
+    "id": 299,
+    "name": "Urawa Hanako",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/299.webp"
+  },
+  {
+    "id": 300,
+    "name": "Hanekawa Hasumi",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/300.webp"
+  },
+  {
+    "id": 301,
+    "name": "Sorasaki Hina",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/301.webp"
+  },
+  {
+    "id": 302,
+    "name": "Akeboshi Himari",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/302.webp"
+  },
+  {
+    "id": 303,
+    "name": "Ryūge Kisaki",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/303.webp"
+  },
+  {
+    "id": 304,
+    "name": "Iochi Mari",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/304.webp"
+  },
+  {
+    "id": 305,
+    "name": "Mizuha Mimori",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/305.webp"
+  },
+  {
+    "id": 306,
+    "name": "Asagi Mutsuki",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/306.webp"
+  },
+  {
+    "id": 307,
+    "name": "Ushio Noa",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/307.webp"
+  },
+  {
+    "id": 308,
+    "name": "Tsukatsuki Rio",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/308.webp"
+  },
+  {
+    "id": 309,
+    "name": "Kuromi Serika",
+    "series": "Blue Archive",
+    "img": "src/img/waifu/309.webp"
+  },
+  {
+    "id": 310,
+    "name": "Nikki Su",
+    "series": "Infinity Nikki",
+    "img": "src/img/waifu/310.webp"
+  },
+  {
+    "id": 311,
+    "name": "Beatrice Aligiere Spero",
+    "series": "The Knight King Who Returned with a God",
+    "img": "src/img/waifu/311.webp"
+  },
+  {
+    "id": 312,
+    "name": "Hwaran",
+    "series": "I Killed the Main Player",
+    "img": "src/img/waifu/312.webp"
+  },
+  {
+    "id": 313,
+    "name": "Lunia Aden",
+    "series": "I Killed the Main Player",
+    "img": "src/img/waifu/313.webp"
+  },
+  {
+    "id": 314,
+    "name": "Marie Dunarev",
+    "series": "I Killed the Main Player",
+    "img": "src/img/waifu/314.webp"
+  },
+  {
+    "id": 315,
+    "name": "Erin Danua",
+    "series": "I Killed the Main Player",
+    "img": "src/img/waifu/315.webp"
+  },
+  {
+    "id": 316,
+    "name": "Alisha Aden",
+    "series": "I Killed the Main Player",
+    "img": "src/img/waifu/316.webp"
+  },
+  {
+    "id": 317,
+    "name": "Namgung Bi-ah",
+    "series": "Childhood Friend of the Zenith",
+    "img": "src/img/waifu/317.webp"
+  },
+  {
+    "id": 318,
+    "name": "Moyong Hi-ah",
+    "series": "Childhood Friend of the Zenith",
+    "img": "src/img/waifu/318.webp"
+  },
+  {
+    "id": 319,
+    "name": "Wi Seol-Ah",
+    "series": "Childhood Friend of the Zenith",
+    "img": "src/img/waifu/319.webp"
+  },
+  {
+    "id": 320,
+    "name": "Dolores Lun Quovadis",
+    "series": "Revenge of the Iron-Blooded Sword Hound",
+    "img": "src/img/waifu/320.webp"
+  },
+  {
+    "id": 321,
+    "name": "Janica Faylover",
+    "series": "The Extra's Academy Survival Guide",
+    "img": "src/img/waifu/321.webp"
+  },
+  {
+    "id": 322,
+    "name": "Lucy Maeril",
+    "series": "The Extra's Academy Survival Guide",
+    "img": "src/img/waifu/322.webp"
+  },
+  {
+    "id": 323,
+    "name": "Lortelle Kecheln",
+    "series": "The Extra's Academy Survival Guide",
+    "img": "src/img/waifu/323.webp"
+  },
+  {
+    "id": 324,
+    "name": "Kanoe Yuuko",
+    "series": "Tasogare Otome x Amnesia",
+    "img": "src/img/waifu/324.webp"
+  },
+  {
+    "id": 325,
+    "name": "Waguri Kaoruko",
+    "series": "Kaoru Hana wa Rin to Saku",
+    "img": "src/img/waifu/325.webp"
+  },
+  {
+    "id": 326,
+    "name": "Shirayuki",
+    "series": "Akagami no Shirayuki-hime",
+    "img": "src/img/waifu/326.webp"
+  },
+  {
+    "id": 327,
+    "name": "Nyaruko",
+    "series": "Haiyore! Nyaruko-san",
+    "img": "src/img/waifu/327.webp"
+  },
+  {
+    "id": 328,
+    "name": "Yvonne",
+    "series": "Arknights: Endfield",
+    "img": "src/img/waifu/328.webp"
+  },
+  {
+    "id": 329,
+    "name": "Ardelia",
+    "series": "Arknights: Endfield",
+    "img": "src/img/waifu/329.webp"
+  },
+  {
+    "id": 330,
+    "name": "Laevatain",
+    "series": "Arknights: Endfield",
+    "img": "src/img/waifu/330.webp"
+  },
+  {
+    "id": 331,
+    "name": "Perlica",
+    "series": "Arknights: Endfield",
+    "img": "src/img/waifu/331.webp"
+  },
+  {
+    "id": 332,
+    "name": "Aemeath",
+    "series": "Wuthering Waves",
+    "img": "src/img/waifu/332.webp"
+  }
+]

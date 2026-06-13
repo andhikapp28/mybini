@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+  <!-- html2canvas for tier list PNG export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
 </head>
 
 <body>
@@ -27,7 +29,7 @@
   <section class="wotd-section" aria-label="Waifu of the Day">
     <div class="wotd-inner">
       <div class="wotd-badge">&#11088; Waifu of the Day</div>
-      <img id="wotd-img" class="wotd-thumb" src="src/img/waifu/placeholder.jpg" alt="Waifu of the Day">
+      <img id="wotd-img" class="wotd-thumb" src="src/img/waifu/placeholder.webp" alt="Waifu of the Day">
       <div class="wotd-info">
         <p id="wotd-name" class="wotd-name">Loading...</p>
         <p id="wotd-series" class="wotd-series"></p>
@@ -108,7 +110,7 @@
         </div>
       </div>
       <div class="stat-card stat-card-large stat-top-series">
-        <img id="stat-top-thumb-inline" class="series-top-thumb" src="src/img/waifu/placeholder.jpg" alt="top series">
+        <img id="stat-top-thumb-inline" class="series-top-thumb" src="src/img/waifu/placeholder.webp" alt="top series">
         <div class="stat-card-body">
           <h3>Series Terbanyak</h3>
           <p id="stat-top-series">—</p>
@@ -119,28 +121,30 @@
   </section>
 
   <div class="controls" role="region" aria-label="filter controls">
-    <div class="letters" id="alphabet-bar" aria-hidden="false"></div>
-    <div class="filter-right">
-      <div class="filter-top">
-        <select id="series-select">
-          <option value="all">All Series</option>
-        </select>
-        <select id="sort-select">
-          <option value="name-asc">Sort by: Name A–Z</option>
-          <option value="name-desc">Sort by: Name Z–A</option>
-          <option value="id-asc">Sort by: ID ↑</option>
-          <option value="id-desc">Sort by: ID ↓</option>
-        </select>
-        <button id="reset-filter" class="reset-btn">Reset</button>
-        <button id="fav-filter-btn" class="fav-filter-btn" title="Show favorites only">&#9825; Favorit</button>
-        <button id="open-tierlist" class="tierlist-open-btn" title="Open tier list">Tier List</button>
-        <select id="load-mode" title="Load mode">
-          <option value="pagination">Pages</option>
-          <option value="infinite">All Bini</option>
-        </select>
-      </div>
-      <div class="search-wrap">
-        <input type="search" id="search-name" placeholder="Search name..." />
+    <div class="controls-inner">
+      <div class="letters" id="alphabet-bar" aria-hidden="false"></div>
+      <div class="filter-right">
+        <div class="filter-top">
+          <select id="series-select">
+            <option value="all">All Series</option>
+          </select>
+          <select id="sort-select">
+            <option value="name-asc">Sort by: Name A–Z</option>
+            <option value="name-desc">Sort by: Name Z–A</option>
+            <option value="id-asc">Sort by: ID ↑</option>
+            <option value="id-desc">Sort by: ID ↓</option>
+          </select>
+          <button id="reset-filter" class="reset-btn">Reset</button>
+          <button id="fav-filter-btn" class="fav-filter-btn" title="Show favorites only">&#9825; Favorit</button>
+          <button id="open-tierlist" class="tierlist-open-btn" title="Open tier list">Tier List</button>
+          <select id="load-mode" title="Load mode">
+            <option value="pagination">Pages</option>
+            <option value="infinite">All Bini</option>
+          </select>
+        </div>
+        <div class="search-wrap">
+          <input type="search" id="search-name" placeholder="Search name..." />
+        </div>
       </div>
     </div>
   </div>
@@ -154,6 +158,16 @@
   <script src="waifu.js"></script>
   <script src="features.js"></script>
   <script src="script.js"></script>
+  <!-- Inline fallback data for file:// protocol (populated by waifu.js if fetch unavailable) -->
+  <script>
+    /* If running on file:// and fetch was skipped, _waifuInline is empty —
+       that's expected: users should serve the project via a local HTTP server.
+       For convenience a small notice is logged to the console. */
+    if (location.protocol === 'file:') {
+      console.warn('[waifu] Running on file:// — fetch() is disabled for waifu.json. ' +
+        'Serve the project with: npx serve . or python -m http.server 8080');
+    }
+  </script>
 
   <div id="waifu-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="waifu-modal-title">
     <div class="modal-backdrop" data-action="close"></div>
@@ -211,6 +225,7 @@
         <h2 id="tierlist-heading">Waifu Tier List</h2>
         <div class="tierlist-header-actions">
           <button id="tierlist-reset" class="tierlist-action-btn">Reset</button>
+          <button id="tierlist-export" class="tierlist-action-btn">Export PNG</button>
           <button id="tierlist-close" class="tierlist-close-btn" aria-label="Close">&#10005;</button>
         </div>
       </div>

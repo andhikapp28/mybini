@@ -40,6 +40,71 @@ const targetEl = document.getElementById('waifu-grid');
 const SCROLL_OFFSET = 110;
 const SHOW_AFTER = 600;
 
+/* ═══════════════════════════════════════════════════════════
+   LAZY LOADING — IntersectionObserver with fade-in effect
+   ══════════════════════════════════════════════════════════= */
+(function initLazyObserver() {
+  if (!('IntersectionObserver' in window)) return;
+  const obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      const img = entry.target;
+      /* Mark as loaded once the image fires the load event */
+      function onLoad() {
+        img.classList.add('img-lazy-loaded');
+        img.removeEventListener('load', onLoad);
+        img.removeEventListener('error', onLoad);
+      }
+      img.addEventListener('load', onLoad);
+      img.addEventListener('error', onLoad); /* show broken image gracefully */
+      /* If already cached and complete, trigger immediately */
+      if (img.complete) onLoad();
+      obs.unobserve(img);
+    });
+  }, { rootMargin: '120px 0px', threshold: 0 });
+
+  /* Expose globally so features.js can use it for tier list / series drawer */
+  window._lazyObserver = obs;
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   ANIMATE COUNTER
+   Smoothly animates a numeric element from its current value
+   to a target value using requestAnimationFrame.
+   ══════════════════════════════════════════════════════════= */
+window.animateCounter = function animateCounter(el, toValue, duration) {
+  if (!el) return;
+  duration = duration || 600;
+  var fromValue = parseInt(el.textContent, 10) || 0;
+  toValue = parseInt(toValue, 10) || 0;
+  if (fromValue === toValue) { el.textContent = toValue; return; }
+  var startTime = null;
+  function step(timestamp) {
+    if (!startTime) startTime = timestamp;
+    var progress = Math.min((timestamp - startTime) / duration, 1);
+    /* ease-out cubic */
+    var eased = 1 - Math.pow(1 - progress, 3);
+    var current = Math.round(fromValue + (toValue - fromValue) * eased);
+    el.textContent = current;
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = toValue;
+  }
+  requestAnimationFrame(step);
+};
+
+/* ═══════════════════════════════════════════════════════════
+   SKELETON LOADING
+   ══════════════════════════════════════════════════════════= */
+function showSkeletons(count) {
+  waifuGrid.innerHTML = '';
+  for (var i = 0; i < count; i++) {
+    var skel = document.createElement('div');
+    skel.className = 'waifu-skeleton';
+    skel.innerHTML = '<div class="waifu-skeleton-thumb"></div><div class="waifu-skeleton-body"><div class="waifu-skeleton-line"></div><div class="waifu-skeleton-line short"></div></div>';
+    waifuGrid.appendChild(skel);
+  }
+}
+
 /* Modal helper */
 function modalRefs() {
   return {
@@ -52,7 +117,8 @@ function modalRefs() {
 }
 
 /* utils */
-function debounce(fn, wait = 120) {
+function debounce(fn, wait) {
+  wait = wait || 120;
   let t;
   return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), wait); };
 }
@@ -106,12 +172,14 @@ calculateResponsivePageSize();
 })();
 
 /* jumlah series */
-(function populateSeries() {
+function populateSeries() {
   const set = new Set(waifus.map(w => w.series));
+  /* Clear existing options except first "All Series" */
+  while (seriesSelect.options.length > 1) seriesSelect.remove(1);
   Array.from(set).sort((a, b) => a.localeCompare(b)).forEach(s => {
     const o = document.createElement('option'); o.value = s; o.textContent = s; seriesSelect.appendChild(o);
   });
-})();
+}
 
 /* event listeners */
 seriesSelect.addEventListener('change', () => {
@@ -153,7 +221,9 @@ resetBtn.addEventListener('click', () => {
   /* re-render if favorites change while favOnly is active */
   window.onFavoritesChange = function () {
     const el = document.getElementById('fav-count');
-    if (el && window.getFavoriteIds) el.textContent = window.getFavoriteIds().length;
+    if (el && window.getFavoriteIds) {
+      window.animateCounter(el, window.getFavoriteIds().length);
+    }
     if (state.favOnly) {
       waifuGrid.innerHTML = '';
       if (USE_INFINITE_SCROLL) loadNextPage(true); else renderList();
@@ -199,25 +269,61 @@ function getFilteredData() {
   return data;
 }
 
-/* card */
-function createCard(w) {
+/* card — builds card DOM without innerHTML clobbering img nodes */
+function buildCard(w, isFav) {
   const card = document.createElement('article');
   card.className = 'waifu-card';
   card.tabIndex = 0;
   card.dataset.id = w.id;
-  const isFav = window.isFavorite ? window.isFavorite(w.id) : false;
-  card.innerHTML = `
-    <span class="id-badge">${escapeHtml(String(w.id))}</span>
-    <button class="fav-btn${isFav ? ' active' : ''}" type="button" aria-label="${isFav ? 'Remove from favorites' : 'Add to favorites'}">&#9829;</button>
-    <div class="waifu-thumb-wrap">
-      <img class="waifu-thumb" loading="lazy" src="${w.img}" alt="${escapeHtml(w.name)} — ${escapeHtml(w.series)}">
-    </div>
-    <div class="waifu-info">
-      <h3>${escapeHtml(w.name)}</h3>
-      <p class="waifu-series-tag" data-series="${escapeHtml(w.series)}">${escapeHtml(w.series)}</p>
-    </div>`;
+
+  /* ID badge */
+  const badge = document.createElement('span');
+  badge.className = 'id-badge';
+  badge.textContent = String(w.id);
+  card.appendChild(badge);
+
+  /* Fav button */
+  const favBtn = document.createElement('button');
+  favBtn.className = 'fav-btn' + (isFav ? ' active' : '');
+  favBtn.type = 'button';
+  favBtn.setAttribute('aria-label', isFav ? 'Remove from favorites' : 'Add to favorites');
+  favBtn.innerHTML = '&#9829;';
+  card.appendChild(favBtn);
+
+  /* Thumb wrapper */
+  const thumbWrap = document.createElement('div');
+  thumbWrap.className = 'waifu-thumb-wrap';
+
+  const img = document.createElement('img');
+  img.className = 'waifu-thumb img-lazy';
+  img.loading = 'lazy';
+  img.src = w.img;
+  img.alt = `${w.name} — ${w.series}`;
+  if (window._lazyObserver) window._lazyObserver.observe(img);
+  thumbWrap.appendChild(img);
+  card.appendChild(thumbWrap);
+
+  /* Info */
+  const info = document.createElement('div');
+  info.className = 'waifu-info';
+  const h3 = document.createElement('h3');
+  h3.textContent = w.name;
+  const p = document.createElement('p');
+  p.className = 'waifu-series-tag';
+  p.dataset.series = w.series;
+  p.textContent = w.series;
+  info.appendChild(h3);
+  info.appendChild(p);
+  card.appendChild(info);
+
   attachParallax(card);
   return card;
+}
+
+/* Remove the now-redundant createCard wrapper — repoint it to buildCard */
+function createCard(w) {
+  const isFav = window.isFavorite ? window.isFavorite(w.id) : false;
+  return buildCard(w, isFav);
 }
 
 /* parallax */
@@ -255,7 +361,8 @@ function renderPagination(totalItems, pageSize, currentPage) {
   paginationWrap.innerHTML = '';
   const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
 
-  function pushBtn(label, page, cls = '') {
+  function pushBtn(label, page, cls) {
+    cls = cls || '';
     const b = document.createElement('button');
     b.className = 'page-btn' + (cls ? ' ' + cls : '');
     b.textContent = label;
@@ -295,8 +402,8 @@ function renderList() {
   const total = waifus.length;
   const filteredCount = filtered.length;
 
-  totalCountEl.textContent = total;
-  filteredCountEl.textContent = filteredCount;
+  window.animateCounter(totalCountEl, total);
+  window.animateCounter(filteredCountEl, filteredCount);
 
   const lastPage = Math.max(1, Math.ceil(filteredCount / state.pageSize));
   if (state.page > lastPage) state.page = lastPage;
@@ -305,48 +412,57 @@ function renderList() {
   const start = (state.page - 1) * state.pageSize;
   const pageItems = filtered.slice(start, start + state.pageSize);
 
-  waifuGrid.innerHTML = '';
-  if (pageItems.length === 0) {
-    waifuGrid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:28px; color:var(--muted)">Tidak ada waifu ditemukan.</div>`;
-  } else {
-    pageItems.forEach(w => waifuGrid.appendChild(createCard(w)));
-  }
-
-  renderPagination(filteredCount, state.pageSize, state.page);
-  paginationWrap.style.display = 'flex';
+  /* Show skeletons first, then replace with real cards */
+  showSkeletons(state.pageSize);
+  setTimeout(function () {
+    waifuGrid.innerHTML = '';
+    if (pageItems.length === 0) {
+      waifuGrid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:28px; color:var(--muted)">Tidak ada waifu ditemukan.</div>`;
+    } else {
+      pageItems.forEach(w => waifuGrid.appendChild(createCard(w)));
+    }
+    renderPagination(filteredCount, state.pageSize, state.page);
+    paginationWrap.style.display = 'flex';
+  }, 0);
 }
 
 
-function loadNextPage(reset = false) {
+function loadNextPage(reset) {
+  reset = reset || false;
   if (!USE_INFINITE_SCROLL) return;
   if (state.loading) return;
 
   const filtered = getFilteredData();
   const total = waifus.length;
 
-
-  totalCountEl.textContent = total;
-  filteredCountEl.textContent = filtered.length;
+  window.animateCounter(totalCountEl, total);
+  window.animateCounter(filteredCountEl, filtered.length);
 
   const lastPage = Math.max(1, Math.ceil(filtered.length / state.pageSize));
   if (reset) {
     state.page = 1;
-    waifuGrid.innerHTML = '';
+    showSkeletons(state.pageSize);
   }
-  if (state.page > lastPage) return;
+  if (state.page > lastPage) {
+    if (reset) waifuGrid.innerHTML = '';
+    return;
+  }
   state.loading = true;
 
   const start = (state.page - 1) * state.pageSize;
   const pageItems = filtered.slice(start, start + state.pageSize);
 
-  pageItems.forEach(w => waifuGrid.appendChild(createCard(w)));
+  setTimeout(function () {
+    if (reset) waifuGrid.innerHTML = '';
+    pageItems.forEach(w => waifuGrid.appendChild(createCard(w)));
 
-  currentPageEl.textContent = `${state.page} / ${lastPage}`;
+    currentPageEl.textContent = `${state.page} / ${lastPage}`;
 
-  state.page += 1;
-  state.loading = false;
-  paginationWrap.style.display = 'none';
-  paginationWrap.innerHTML = '';
+    state.page += 1;
+    state.loading = false;
+    paginationWrap.style.display = 'none';
+    paginationWrap.innerHTML = '';
+  }, 0);
 }
 
 
@@ -417,14 +533,39 @@ document.addEventListener('click', (e) => {
 });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
-if (USE_INFINITE_SCROLL) {
-  paginationWrap.style.display = 'none';
-  paginationWrap.innerHTML = '';
-  waifuGrid.innerHTML = '';
-  state.page = 1;
-  loadNextPage(true);
+/* ═══════════════════════════════════════════════════════════
+   INITIAL RENDER (deferred until _waifuReady resolves)
+   ══════════════════════════════════════════════════════════= */
+function initApp() {
+  populateSeries();
+
+  /* Update series stats */
+  if (typeof window.updateSeriesStats === 'function') {
+    try { window.updateSeriesStats(); } catch (e) { /* ignore */ }
+  }
+
+  /* Initial fav count */
+  const favEl = document.getElementById('fav-count');
+  if (favEl && window.getFavoriteIds) favEl.textContent = window.getFavoriteIds().length;
+
+  if (USE_INFINITE_SCROLL) {
+    paginationWrap.style.display = 'none';
+    paginationWrap.innerHTML = '';
+    waifuGrid.innerHTML = '';
+    state.page = 1;
+    loadNextPage(true);
+  } else {
+    renderList();
+  }
+}
+
+if (window._waifuReady) {
+  window._waifuReady.then(function () {
+    initApp();
+  });
 } else {
-  renderList();
+  /* waifus already global (old code path / inline fallback already set) */
+  initApp();
 }
 
 /* -----------------------
@@ -459,14 +600,6 @@ if (USE_INFINITE_SCROLL) {
     backBtn.innerHTML = '▲';
     document.body.appendChild(backBtn);
   }
-
-  const getTarget = () => {
-    return document.getElementById('waifu-grid') ||
-      document.querySelector('.waifu-grid') ||
-      document.querySelector('#waifu-section') ||
-      document.querySelector('main') ||
-      document.body;
-  };
 
   function scrollToTarget() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -521,7 +654,7 @@ if (USE_INFINITE_SCROLL) {
   const btn10x = document.getElementById('gacha-10x');
   if (!stage || !btn1x || !btn10x) return;
 
-  const FALLBACK_IMG = 'src/img/waifu/placeholder.jpg';
+  const FALLBACK_IMG = 'src/img/waifu/placeholder.webp';
 
   function escapeHtml(s) { if (s == null) return ''; return String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch])); }
   function randInt(max) { return Math.floor(Math.random() * max); }
@@ -709,9 +842,6 @@ if (USE_INFINITE_SCROLL) {
 
 
 (function () {
-  if (typeof waifus === 'undefined' || !Array.isArray(waifus)) {
-    return;
-  }
   const elTotalSeries = document.getElementById('stat-total-series');
   const elTopSeries = document.getElementById('stat-top-series');
   const elTopThumb = document.getElementById('stat-top-thumb-inline');
@@ -736,7 +866,7 @@ if (USE_INFINITE_SCROLL) {
     const counts = seriesCounts(data);
 
     const totalSeries = counts.size;
-    if (elTotalSeries) elTotalSeries.textContent = totalSeries;
+    if (elTotalSeries) window.animateCounter(elTotalSeries, totalSeries);
 
     let topSeries = null;
     let topCount = 0;
@@ -761,7 +891,7 @@ if (USE_INFINITE_SCROLL) {
           elTopThumb.src = pick.img;
           elTopThumb.alt = (pick.name ? pick.name : topSeries);
         } else {
-          elTopThumb.src = 'src/img/waifu/placeholder.jpg';
+          elTopThumb.src = 'src/img/waifu/placeholder.webp';
           elTopThumb.alt = topSeries;
         }
         elTopThumb.onclick = function () {
@@ -773,7 +903,7 @@ if (USE_INFINITE_SCROLL) {
         };
 
       } else {
-        elTopThumb.src = 'src/img/waifu/placeholder.jpg';
+        elTopThumb.src = 'src/img/waifu/placeholder.webp';
         elTopThumb.alt = '—';
         elTopThumb.onclick = null;
       }
@@ -782,7 +912,6 @@ if (USE_INFINITE_SCROLL) {
     return { totalSeries, topSeries, topCount };
   }
 
-  try { updateSeriesStats(); } catch (e) { /* ignore */ }
   window.updateSeriesStats = updateSeriesStats;
 
 })();
